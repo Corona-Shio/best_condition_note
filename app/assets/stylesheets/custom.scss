@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* mixins, variables, etc. */
 
@@ -95,4 +97,39 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+/* logo-link */
+
+.logo-link {
+  display: inline-block;
+  color: #444;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  &:hover {
+    color: #000000;
+    background-color: #a0c8eb;
+    text-decoration: none;
+    padding-right: 20px;
+  }
+}
+
+.maintitle{
+  font-family: 'Noto Serif JP', sans-serif;
+  display:flex;
+  font-size:60px;
+  line-height:60px;
+  flex-flow: column;
+  letter-spacing:-4px;
+}
+
+.description{
+  font-family: 'Noto Serif', serif;
+  display:flex;
+  font-size:14px;
+  line-height:20px;
+  flex-flow: column;
+  font-weight: bold;
+  letter-spacing:1px;
 }

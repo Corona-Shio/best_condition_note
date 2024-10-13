@@ -3,7 +3,7 @@ require "test_helper"
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @base_title = "Best Condition Book"
+    @base_title = "Best Condition Note"
   end
 
   test "should get home" do

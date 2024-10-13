@@ -1,5 +1,5 @@
 <div class="center jumbotron">
-  <h1>Welcome to the Best Condition Book</h1>
+  <h1>Welcome to the Best Condition Note</h1>
 
   <h2>
     This is the home page for the
@@ -10,5 +10,7 @@
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
 
-<%# <%= link_to image_tag("rails.svg", alt: "Rails logo", width: "200"),
-                      "https://rubyonrails.org/" %> %>
+<%= link_to root_path, class: "logo-link" do %>
+  <span class="maintitle">最強の体調</span>
+  <span class="description">THE BULLETPROOF CONDITION</span>
+<% end %>
