@@ -72,4 +72,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "minitest-reporters", "1.6.0"
+  gem "guard",              "2.18.0"
 end
