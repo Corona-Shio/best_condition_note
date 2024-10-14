@@ -7,6 +7,7 @@ ruby "3.2.5"
 gem "rails", "~> 7.0.4"
 
 # 
+gem "bcrypt",          "3.1.18"
 gem "bootstrap-sass",  "3.4.1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
