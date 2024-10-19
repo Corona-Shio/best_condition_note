@@ -1,16 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
 
 /* universal */
@@ -36,7 +36,12 @@ textarea {
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1;
 }
 
@@ -60,7 +65,6 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
 
 /* header */
 
@@ -138,23 +142,23 @@ footer {
   }
 }
 
-.maintitle{
-  font-family: 'Noto Serif JP', sans-serif;
-  display:flex;
-  font-size:60px;
-  line-height:60px;
+.maintitle {
+  font-family: "Noto Serif JP", sans-serif;
+  display: flex;
+  font-size: 60px;
+  line-height: 60px;
   flex-flow: column;
-  letter-spacing:-4px;
+  letter-spacing: -4px;
 }
 
-.description{
-  font-family: 'Noto Serif', serif;
-  display:flex;
-  font-size:14px;
-  line-height:20px;
+.description {
+  font-family: "Noto Serif", serif;
+  display: flex;
+  font-size: 14px;
+  line-height: 20px;
   flex-flow: column;
   font-weight: bold;
-  letter-spacing:1px;
+  letter-spacing: 1px;
 }
 
 /* miscellaneous */
@@ -205,7 +209,8 @@ aside {
 
 /* forms */
 
-input, textarea {
+input,
+textarea {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
@@ -229,6 +234,20 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
 
 /* Dropdown menu */

@@ -1,0 +1,12 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
+  "window.zoomLevel": 0,
+  "editor.scrollBeyondLastLine": false, //下限でスクロールをストップさせる
+  "files.trimFinalNewlines": true // ファイルの保存時に末尾を改行
+}
