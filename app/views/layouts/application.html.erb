@@ -9,6 +9,10 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "https://www.google.com/jsapi" %>
+    <%= javascript_include_tag "chartkick" %>
+
+
   </head>
   <body>
     <%= render 'layouts/header' %>

@@ -24,3 +24,35 @@ User.create!(name:  "Example User",
                password:              password,
                password_confirmation: password)
 end
+
+# ユーザー情報の作成
+user = User.find_or_create_by(id: 1)
+
+# 1ヶ月分のスコアデータを生成
+(1..30).each do |day|
+  DailyRecord.create!(
+    user: user,
+    date: Date.today - day,
+    sleep:     rand(1..5),
+    meal:      rand(1..5),
+    mental:    rand(1..5),
+    training:  rand(1..5),
+    condition: rand(1..5)
+  )
+end
+
+# ユーザー情報の作成
+user = User.find_or_create_by(id: 2)
+
+# 1ヶ月分のスコアデータを生成
+(1..30).each do |day|
+  DailyRecord.create!(
+    user: user,
+    date: Date.today - day,
+    sleep:     rand(1..5),
+    meal:      rand(1..5),
+    mental:    rand(1..5),
+    training:  rand(1..5),
+    condition: rand(1..5)
+  )
+end

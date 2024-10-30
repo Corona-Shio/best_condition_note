@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_26_062812) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_27_121751) do
+  create_table "daily_records", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.date "date"
+    t.integer "sleep"
+    t.integer "meal"
+    t.integer "mental"
+    t.integer "training"
+    t.integer "condition"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "date"], name: "index_daily_records_on_user_id_and_date", unique: true
+    t.index ["user_id"], name: "index_daily_records_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -22,4 +36,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_26_062812) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "daily_records", "users"
 end

@@ -1,0 +1,13 @@
+<h1>ユーザーの1ヶ月分スコアグラフ</h1>
+<%= area_chart [
+  { name: "睡眠", data: @sleep_scores },
+  { name: "食事", data: @meal_scores },
+  { name: "メンタル", data: @mental_scores },
+  { name: "トレーニング", data: @training_scores },
+  { name: "コンディション", data: @condition_scores }
+] %>
+<%= line_chart @sleep_scores,      ytitle: "SLEEP",     min: 0, max: 6 %>
+<%= line_chart @meal_scores,       ytitle: "MEAL",      min: 0, max: 6 %>
+<%= line_chart @mental_scores,     ytitle: "MENTAL",    min: 0, max: 6 %>
+<%= line_chart @training_scores,   ytitle: "TRAINING",  min: 0, max: 6 %>
+<%= line_chart @condition_scores,  ytitle: "CONDITION", min: 0, max: 6 %>
