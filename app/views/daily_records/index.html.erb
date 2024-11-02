@@ -1,0 +1,52 @@
+<h1>Condition Chart</h1>
+<%= line_chart @sleep_scores,      ytitle: "SLEEP",     min: 0, max: 6, library: { scales: { x: { display: false }, y: { stepSize: 1, ticks: { display: false } } } } %>
+<%= line_chart @meal_scores,       ytitle: "MEAL",      min: 0, max: 6, library: { scales: { x: { display: false }, y: { ticks: { display: false } } } } %>
+<%= line_chart @mental_scores,     ytitle: "MENTAL",    min: 0, max: 6, library: { scales: { x: { display: false }, y: { ticks: { display: false } } } } %>
+<%= line_chart @training_scores,   ytitle: "TRAINING",  min: 0, max: 6, library: { scales: { x: { display: false }, y: { ticks: { display: false } } } } %>
+<%= line_chart @condition_scores,  ytitle: "CONDITION", min: 0, max: 6, library: { scales: { y: { ticks: { display: false } } } } %>
+
+
+<%= line_chart @condition_scores.map { |k, v| [k.strftime("%m/%d"), v] },
+    ytitle: "CONDITION", 
+    min: 0, 
+    max: 6, 
+    library: { 
+      scales: { 
+        y: { 
+          grid:  { drawTicks: false },
+          ticks: { display: false } 
+        } 
+      } 
+      
+    } 
+%>
+
+
+
+<h1>Condition Table</h1>
+<table class="table table-hover text-center">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" class="text-center">Date</th>
+      <th scope="col" class="text-center uniform-width">Sleep</th>
+      <th scope="col" class="text-center uniform-width">Meal</th>
+      <th scope="col" class="text-center uniform-width">Mental</th>
+      <th scope="col" class="text-center uniform-width">Training</th>
+      <th scope="col" class="text-center uniform-width">Condition</th>
+      <th scope="col" class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @daily_records.each do |record| %>
+      <tr>
+        <td><%= record.date %></td>
+        <td><%= record.sleep %></td>
+        <td><%= record.meal %></td>
+        <td><%= record.mental %></td>
+        <td><%= record.training %></td>
+        <td><%= record.condition %></td>
+        <td><%= link_to 'Edit', edit_daily_record_path(record) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

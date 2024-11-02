@@ -12,7 +12,8 @@ function addToggleListener(selected_id, menu_id, toggle_class) {
   
   // クリックをリッスンするトグルリスナーを追加する
   document.addEventListener("turbo:load", function() {
-    addToggleListener("hamburger", "navbar-menu",   "collapse");
-    addToggleListener("account",   "dropdown-menu", "active");
+    addToggleListener("hamburger", "navbar-menu",    "collapse");
+    addToggleListener("account",   "dropdown-menu",  "active");
+    addToggleListener("condition", "dropdown-menu2", "active");
   });
   

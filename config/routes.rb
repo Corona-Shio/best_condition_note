@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   get    "/login",   to: "sessions#new"
   post   "/login",   to: "sessions#create"
   delete "/logout",  to: "sessions#destroy"
-  get "/users/:id/new",   to: "daily_records#new"
-  get "/users/:id/graph", to: "daily_records#show"
+  # get "/users/:id/new",   to: "daily_records#new"
+  # get "/users/:id/graph", to: "daily_records#show"
   resources :users
   resources :daily_records
+  # resources :daily_records, path: 'condition'
   # resources :users do
   #   member do
   #     resources :daily_records
   #   end
-  # end
+  # end 
 end

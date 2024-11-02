@@ -1,0 +1,27 @@
+<%= form_with(model: @daily_record) do |f| %>
+  <%= render 'shared/error_messages', object: @daily_record %>
+
+  <%= f.label :date %>
+  <% if @is_edit %>
+    <%= f.date_field :date, class: 'form-control', readonly: true %>
+  <% else %>
+    <%= f.date_field :date, class: 'form-control' %>
+  <% end %> 
+
+  <%= f.label :sleep %>
+  <%= f.number_field :sleep, class: 'form-control', in: 1..5, step: 1 %>
+
+  <%= f.label :meal %>
+  <%= f.number_field :meal, class: 'form-control', in: 1..5, step: 1 %>
+
+  <%= f.label :mental %>
+  <%= f.number_field :mental, class: 'form-control', in: 1..5, step: 1 %>
+
+  <%= f.label :training %>
+  <%= f.number_field :training, class: 'form-control', in: 1..5, step: 1 %>
+
+  <%= f.label :condition %>
+  <%= f.number_field :condition, class: 'form-control', in: 1..5, step: 1 %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

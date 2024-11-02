@@ -268,3 +268,17 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+/* Chart */
+rect {
+  height: 100px
+}
+
+/* Table */
+.uniform-width {
+  width: 13%; /* 列の幅を同じにする */
+}
+
+.thead-dark th {
+  background-color: $gray-lighter;
+}

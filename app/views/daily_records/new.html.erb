@@ -3,28 +3,6 @@
 <h1>Add daily record</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with(model: @daily_record) do |f| %>
-      <%= render 'shared/error_messages', object: @daily_record %>
-
-      <%= f.label :date %>
-      <%= f.date_field :date, class: 'form-control', value: Date.today.strftime("%Y-%m-%d"), style: "height: 38px;" %>
-
-      <%= f.label :sleep %>
-      <%= f.number_field :sleep, class: 'form-control', in: 1..5, step: 1 , value: 3 %>
-
-      <%= f.label :meal %>
-      <%= f.number_field :meal, class: 'form-control', in: 1..5, step: 1 , value: 3 %>
-
-      <%= f.label :mental %>
-      <%= f.number_field :mental, class: 'form-control', in: 1..5, step: 1 , value: 3 %>
-
-      <%= f.label :training %>
-      <%= f.number_field :training, class: 'form-control', in: 1..5, step: 1 , value: 3 %>
-
-      <%= f.label :condition %>
-      <%= f.number_field :condition, class: 'form-control', in: 1..5, step: 1 , value: 3 %>
-
-      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-    <% end %>
+    <%= render 'form' %>
   </div>
 </div>
