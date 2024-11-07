@@ -1,0 +1,96 @@
+<h1>Condition Chart</h1>
+<h1>１グラフ</h1>
+<div class="period-selector btn-group btn-rm">
+  <%= link_to '1ヶ月', graph_daily_records_path(period: 'month', view_type: @view_type), 
+              class: "btn #{@period == 'month' ? 'btn-primary' : 'btn-default'}" %>
+  <%= link_to '3ヶ月', graph_daily_records_path(period: 'three_months', view_type: @view_type), 
+              class: "btn #{@period == 'three_months' ? 'btn-primary' : 'btn-default'}" %>
+  <%= link_to '1年', graph_daily_records_path(period: 'year', view_type: @view_type), 
+              class: "btn #{@period == 'year' ? 'btn-primary' : 'btn-default'}" %>
+</div>
+
+<div class="view-type-selector btn-group">
+  <%= link_to '日別', graph_daily_records_path(period: @period, view_type: 'daily'), 
+              class: "btn #{@view_type == 'daily' ? 'btn-primary' : 'btn-default'}" %>
+  <%= link_to '週平均', graph_daily_records_path(period: @period, view_type: 'weekly'), 
+              class: "btn #{@view_type == 'weekly' ? 'btn-primary' : 'btn-default'}" %>
+</div>
+
+<%= line_chart [
+      { name: "Sleep",     data: @scores2[:sleep] },
+      { name: "Meal",      data: @scores2[:meal] },
+      { name: "Mental",    data: @scores2[:mental] },
+      { name: "Training",  data: @scores2[:training] },
+      { name: "Condition", data: @scores2[:condition] }
+    ],
+    height: "700px",
+    # xtitle: "Date",
+    # ytitle: "Score",
+    min: 0,
+    max: 30,
+    library: {
+      scales: {
+        x: {
+          display: true,
+          type: 'time',
+          time: {
+            displayFormats: {
+              day: 'MM/dd'
+            }
+          }
+        },
+        y: {
+          ticks: {
+            display: false,
+            stepSize: 3,
+            maxTicksLimit: 20
+          },
+          grid: {
+            color: "rgba(0,0,255,0.1)",
+            lineWidth: 1,
+          }
+        },
+      },
+    }
+%>
+
+
+<h1>５グラフ</h1>
+<%= line_chart @scores[:sleep],     ytitle: "SLEEP"    %>
+<%= line_chart @scores[:meal],      ytitle: "MEAL"     %>
+<%= line_chart @scores[:mental],    ytitle: "MENTAL"   %>
+<%= line_chart @scores[:training],  ytitle: "TRAINING" %>
+<%= line_chart @scores[:condition], ytitle: "CONDITION",
+  height: "160px",
+  library: {
+    scales: {
+      x: {
+        display: true,
+        type: 'time',
+        time: {
+          displayFormats: { day: 'MM/dd' }
+        }
+      }
+    }
+  }
+%>
+
+
+<h1>可変幅グラフ</h1>
+<%= line_chart @scores[:condition], ytitle: "CONDITION",
+  width: "#{@scores[:condition].count * 30}px",
+  height: "160px",
+  container: "chart-container",
+  library: {
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        display: true,
+        type: 'time',
+        time: {
+          displayFormats: { day: 'MM/dd' }
+        }
+      }
+    }
+  }
+%>

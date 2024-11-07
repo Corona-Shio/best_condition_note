@@ -28,8 +28,8 @@ end
 # ユーザー情報の作成
 user = User.find_or_create_by(id: 1)
 
-# 1ヶ月分のスコアデータを生成
-(1..30).each do |day|
+# 1年分のスコアデータを生成
+(1..365).each do |day|
   DailyRecord.create!(
     user: user,
     date: Date.today - day,

@@ -212,14 +212,24 @@ aside {
 input,
 textarea {
   border: 1px solid #bbb;
+  height: 38px;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
 }
 
 input {
-  height: auto !important;
+  height: auto;
 }
+
+.form-control {
+  height: 38px;
+}
+
+
+// input {
+//   height: auto !important;
+// }
 
 #error_explanation {
   color: red;
@@ -269,11 +279,6 @@ input {
   }
 }
 
-/* Chart */
-rect {
-  height: 100px
-}
-
 /* Table */
 .uniform-width {
   width: 13%; /* 列の幅を同じにする */
@@ -281,4 +286,63 @@ rect {
 
 .thead-dark th {
   background-color: $gray-lighter;
+}
+
+.month-navigation {
+  // background: #f8f9fa;
+  padding: 15px 20px;
+  border-radius: 8px;
+  width: 100%;
+  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .nav-link {
+    color: #343a40;
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,.1);
+    border-radius: 5em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 8px 10px;
+    transition: 0.4s;
+
+    &:hover {
+      background-color: #e9ecef;
+      transform: scale(1.1);
+      color: #007bff;
+      text-decoration: none;
+    }
+    
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .date-display {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #343a40;
+  
+    .unit {
+      font-size: 2rem;  // または 0.6em
+      font-weight: 1000;
+      margin: 0 2px;
+      position: relative;
+      top: -0.03em;
+    }
+  }
+
+  /* Chart */
+
 }

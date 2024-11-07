@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   # get "/users/:id/new",   to: "daily_records#new"
   # get "/users/:id/graph", to: "daily_records#show"
   resources :users
-  resources :daily_records
+  resources :daily_records do
+    collection do
+      get 'graph'  # /daily_records/graph にマッピング
+    end
+  end
   # resources :daily_records, path: 'condition'
   # resources :users do
   #   member do

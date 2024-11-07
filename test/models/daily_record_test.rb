@@ -26,6 +26,11 @@ class DailyRecordTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "sleep should be present" do
+    @daily_records.sleep = nil
+    assert_not @daily_records.valid?
+  end
+
   test "is not valid with a sleep value less than 1" do
     @daily_records.sleep = 0
     assert_not @daily_records.valid?
@@ -33,6 +38,11 @@ class DailyRecordTest < ActiveSupport::TestCase
 
   test "is not valid with a sleep value greater than 5" do
     @daily_records.sleep = 6
+    assert_not @daily_records.valid?
+  end
+
+  test "meal should be present" do
+    @daily_records.meal = nil
     assert_not @daily_records.valid?
   end
 
@@ -46,6 +56,11 @@ class DailyRecordTest < ActiveSupport::TestCase
     assert_not @daily_records.valid?
   end
 
+  test "mental should be present" do
+    @daily_records.mental = nil
+    assert_not @daily_records.valid?
+  end
+
   test "is not valid with a mental value less than 1" do
     @daily_records.mental = 0
     assert_not @daily_records.valid?
@@ -53,6 +68,10 @@ class DailyRecordTest < ActiveSupport::TestCase
 
   test "is not valid with a mental value greater than 5" do
     @daily_records.mental = 6
+    assert_not @daily_records.valid?
+  end
+  test "training should be present" do
+    @daily_records.training = nil
     assert_not @daily_records.valid?
   end
 
@@ -63,6 +82,11 @@ class DailyRecordTest < ActiveSupport::TestCase
 
   test "is not valid with a training value greater than 5" do
     @daily_records.training = 6
+    assert_not @daily_records.valid?
+  end
+
+  test "condition should be present" do
+    @daily_records.condition = nil
     assert_not @daily_records.valid?
   end
 
