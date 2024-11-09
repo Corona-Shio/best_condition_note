@@ -1,3 +1,70 @@
+<%# 20241109 開始 %>
+
+<h1>Condition Chart</h1>
+<h1>１グラフ</h1>
+
+<%= line_chart [
+      { name: "Sleep",     data: @scores2[:sleep] },
+      { name: "Meal",      data: @scores2[:meal] },
+      { name: "Mental",    data: @scores2[:mental] },
+      { name: "Training",  data: @scores2[:training] },
+      { name: "Condition", data: @scores2[:condition] }
+    ],
+    height: "700px",
+    # xtitle: "Date",
+    # ytitle: "Score",
+    min: 0,
+    max: 30,
+    library: {
+      scales: {
+        x: {
+          display: true,
+          type: 'time',
+          time: {
+            displayFormats: {
+              day: 'MM/dd'
+            }
+          }
+        },
+        y: {
+          ticks: {
+            display: false,
+            stepSize: 3,
+            maxTicksLimit: 20
+          },
+          grid: {
+            color: "rgba(0,0,255,0.1)",
+            lineWidth: 1,
+          }
+        },
+      },
+    }
+%>
+
+
+<h1>５グラフ</h1>
+<%= line_chart @scores[:sleep],     ytitle: "SLEEP"    %>
+<%= line_chart @scores[:meal],      ytitle: "MEAL"     %>
+<%= line_chart @scores[:mental],    ytitle: "MENTAL"   %>
+<%= line_chart @scores[:training],  ytitle: "TRAINING" %>
+<%= line_chart @scores[:condition], ytitle: "CONDITION",
+  # width: "#{@scores[:condition].count * 30}px", # 可変width
+  height: "160px",
+  library: {
+    scales: {
+      x: {
+        display: true,
+        type: 'time',
+        time: {
+          displayFormats: { day: 'MM/dd' }
+        }
+      }
+    }
+  }
+%>
+
+<%# 20241109 終了 %>
+
 <%# app/views/daily_records/index.html.erb %>
 <div class="period-selector">
   <%= link_to '今月', daily_records_path(period: 'this_month', view_type: @view_type), 
