@@ -64,7 +64,6 @@ class DailyRecordsController < ApplicationController
       condition:  aggregate_scores(:condition).map { |date, score| [date, score + 6 * 0] }
     }
 
-
   end
   
   def show

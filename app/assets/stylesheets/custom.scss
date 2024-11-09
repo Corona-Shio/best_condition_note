@@ -342,7 +342,38 @@ input {
       top: -0.03em;
     }
   }
+}
 
-  /* Chart */
+/* Chart */
+.chart-container {
+  position: relative;
+}
 
+.scrollableChartWrapper {
+  overflow-x: scroll;
+}
+
+.fixed-legend {
+  position: absolute; 
+  top: 5px; 
+  left: 50px;
+  background-color: rgba(255, 255, 255, 0.0);
+  padding: 0px;
+  gap: 0.5px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 93px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.07);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.button-group {
+  padding: 10px;
+}
+
+.btn-group {
+  padding-right: 10px; 
 }
