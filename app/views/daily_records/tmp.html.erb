@@ -1,3 +1,180 @@
+<%# 20241117 開始 %>
+
+<div class="chart-container">
+  <div class="scrollableChartWrapper">
+    <canvas id="chart"></canvas>
+  </div>
+  <div class="fixed-legend">
+      <div>SLEEP</div>
+      <div>MEAL</div>
+      <div>MENTAL</div>
+      <div>TRAINING</div>
+      <div>CONDITION</div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('turbo:load', function() {
+        
+        // 既存のチャートを破棄
+        if (window.myChart) {
+            window.myChart.destroy();
+        }
+
+        var ctx = document.getElementById('chart');
+
+        // var scoresData = <%= raw @scores.to_json %>;
+        // var dates     = scoresData.sleep.map(item => item[0]);
+        // var sleeps     = scoresData.sleep.map(item => item[1]);
+        // var meals      = scoresData.meal.map(item => item[1]);
+        // var mentals    = scoresData.mental.map(item => item[1]);
+        // var trainings  = scoresData.training.map(item => item[1]);
+        // var conditions = scoresData.condition.map(item => item[1]);
+        var dates      = <%= @date.to_json.html_safe %>;
+        var sleeps     = <%= @sleep.to_json.html_safe %>;
+        var meals      = <%= @meal.to_json.html_safe %>;
+        var mentals    = <%= @mental.to_json.html_safe %>;
+        var trainings  = <%= @training.to_json.html_safe %>;
+        var conditions = <%= @condition.to_json.html_safe %>;
+        
+
+        var xAxisLabelMinWidth = 30; // データ当たりの幅を設定
+        // var width = scoresData.sleep.length * xAxisLabelMinWidth; // グラフ全体の幅を計算
+        var width = dates.length * xAxisLabelMinWidth; // グラフ全体の幅を計算
+
+        if (width < 1100) {
+            ctx.style.width = "100%";
+        } else {
+            ctx.style.width = width + "px";
+        }
+        ctx.style.height = "700px"; //htmlと同じ高さを設定
+
+        var myChart = new Chart(ctx.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [
+                    {
+                        label: 'SLEEP',
+                        data: sleeps,
+                        // borderColor: 'blue',
+                        // tension: 0.1
+                    },
+                    {
+                        label: 'MEAL',
+                        data: meals,
+                        // borderColor: 'green',
+                        // tension: 0.1
+                    },
+                    {
+                        label: 'MENTAL',
+                        data: mentals,
+                        // borderColor: 'red',
+                        // tension: 0.1
+                    },
+                    {
+                        label: 'TRAINING',
+                        data: trainings,
+                        // borderColor: 'purple',
+                        // tension: 0.1
+                    },
+                    {
+                        label: 'CONDITION',
+                        data: conditions,
+                        // borderColor: 'orange',
+                        // tension: 0.1
+                    }
+                ]
+            },
+            options: {
+                responsive: false,
+                plugins: {
+                    title: {
+                        display: false,
+                    },
+                    legend: {
+                        display: false,
+                        position: 'left',
+                    },
+                    tooltip: {
+                        enabled: false
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        type: 'time',
+                        time: {
+                            unit: 'day',
+                            displayFormats: {
+                                day: 'MM/dd'
+                            }
+                        },
+                        grid: {
+                            color: "rgba(0,0,255,0.03)",
+                            lineWidth: 1,
+                        },
+                        ticks: {
+                            maxRotation: 0
+                        }
+                    },
+                    y: {
+                        display: true,
+                        beginAtZero: true,
+                        ticks: {
+                            display: false,
+                            stepSize: 3,
+                            maxTicksLimit: 20
+                        },
+                        grid: {
+                            color: "rgba(0,0,255,0.1)",
+                            lineWidth: 1,
+                        }
+                    },
+                    }
+                },
+            });
+        // スクロールバーを右端にする
+        setTimeout(() => {
+            const scrollableWrappers = document.querySelectorAll('.scrollableChartWrapper');
+
+            scrollableWrappers.forEach(wrapper => {
+                wrapper.scrollLeft = wrapper.scrollWidth;
+            });
+        }, 100);
+    });
+    // 同時スクロール
+    document.addEventListener('DOMContentLoaded', () => {
+        const scrollableElements = document.querySelectorAll('.scrollableChartWrapper');
+        
+        // 最初の要素をマスター要素として使用
+        const masterElement = scrollableElements[0];
+        
+        masterElement.addEventListener('scroll', () => {
+            const scrollLeft = masterElement.scrollLeft;
+            
+            scrollableElements.forEach(element => {
+            if (element !== masterElement) {
+                element.scrollLeft = scrollLeft;
+            }
+            });
+        });
+    });
+    
+</script>
+
+<%# 20241117 終了 %>
+
+
+
+
+
+
+
+
+
+
+
 <%# 20241109 開始 %>
 
 <h1>Condition Chart</h1>
