@@ -345,8 +345,18 @@ input {
 }
 
 /* Chart */
+.btn-group {
+  padding-left: 20px;
+  padding-bottom: 15px;
+}
+
 .chart-container {
   position: relative;
+  margin-bottom: -22px;
+  background: white;
+}
+.chart-container:last-of-type {
+  margin-bottom: 0;
 }
 
 .scrollableChartWrapper {
@@ -354,26 +364,33 @@ input {
 }
 
 .fixed-legend {
-  position: absolute; 
-  top: 5px; 
-  left: 50px;
-  background-color: rgba(255, 255, 255, 0.0);
-  padding: 0px;
-  gap: 0.5px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-size: 93px;
+  position: absolute;
+  top: -27px;
+  right: 0;
+  bottom: 0;
+  left: 30px;
+  font-size: 96px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.07);
+  background-color: rgba(255, 255, 255, 0.0);
   z-index: 10;
   pointer-events: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  @media (max-width: 800px) {
+    left: 20px;
+    font-size: 60px;
+    overflow-x: hidden;
+  }
 }
 
-.button-group {
-  padding: 10px;
+.scrollableChartWrapper {
+  /* スクロールバーを完全に非表示 */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-.btn-group {
-  padding-right: 10px; 
+.scrollableChartWrapper::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, and Opera */
 }

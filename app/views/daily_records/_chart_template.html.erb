@@ -1,0 +1,136 @@
+<div class="chart-container">
+  <div class="scrollableChartWrapper">
+    <canvas id="<%= chart_id %>"></canvas>
+  </div>
+  <div class="fixed-legend">
+      <div><%= dataset_label %></div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('turbo:load', function() {
+        
+        // // 既存のチャートを破棄
+        // if (window.myChart) {
+        //     window.myChart.destroy();
+        // }
+
+        var ctx = document.getElementById('<%= chart_id %>');
+
+        var labels = <%= labels.to_json.html_safe %>;
+        var data   = <%= data.to_json.html_safe %>;
+
+        var xAxisLabelMinWidth = 30; // データ当たりの幅を設定
+        var width = labels.length * xAxisLabelMinWidth; // グラフ全体の幅を計算
+
+        if (width < 1100) {
+            ctx.style.width = "100%";
+        } else {
+            ctx.style.width = width + "px";
+        }
+        ctx.style.height = "150px"; //htmlと同じ高さを設定
+
+        // グラデーションの作成
+        var gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(<%= gradient_color1[0] %>, '<%= gradient_color1[1] %>');
+        gradient.addColorStop(<%= gradient_color2[0] %>, '<%= gradient_color2[1] %>');
+
+        var myChart = new Chart(ctx.getContext('2d'), {
+
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: '<%= dataset_label %>',
+                        data: data,
+                        borderWidth: 3,
+                        borderColor: '<%= gradient_color1[1].gsub(/0\.7\)/, '1)') %>',
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: gradient,
+                        pointBackgroundColor: 'white',
+                        // pointBorderColor: 'rgba(75, 192, 192, 1)',
+                        pointBorderColor: '<%= gradient_color1[1].gsub(/0\.7\)/, '1)') %>',
+                        pointBorderWidth: 1,
+                        pointRadius: 4,
+                        // pointHoverRadius: 4
+                        }
+                ]
+            },
+            options: {
+                responsive: false,
+                plugins: {
+                    title: {
+                        display: false,
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        enabled: false
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        type: 'time',
+                        time: {
+                            unit: 'day',
+                            displayFormats: {
+                                day: 'MM/dd'
+                            }
+                        },
+                        grid: {
+                            color: "rgba(0,0,255,0.03)",
+                            lineWidth: 1,
+                        },
+                        ticks: {
+                            maxRotation: 0
+                        }
+                    },
+                    y: {
+                        suggestedMax: 5,
+                        display: true,
+                        beginAtZero: true,
+                        ticks: {
+                            display: false,
+                            stepSize: 1,
+                            maxTicksLimit: 20
+                        },
+                        grid: {
+                            color: "rgba(0,0,255,0.1)",
+                            lineWidth: 1,
+                        }
+                    },
+                    }
+                },
+            });
+        // スクロールバーを右端にする（最新のデータを表示）
+        setTimeout(() => {
+            const scrollableWrappers = document.querySelectorAll('.scrollableChartWrapper');
+
+            scrollableWrappers.forEach(wrapper => {
+                wrapper.scrollLeft = wrapper.scrollWidth;
+            });
+        }, 100);
+    });
+    
+    // 同時スクロール
+    document.addEventListener('DOMContentLoaded', () => {
+        const scrollableElements = document.querySelectorAll('.scrollableChartWrapper');
+        
+        scrollableElements.forEach(masterElement => {
+            masterElement.addEventListener('scroll', () => {
+                const scrollLeft = masterElement.scrollLeft;
+
+                scrollableElements.forEach(element => {
+                    if (element !== masterElement) {
+                        element.scrollLeft = scrollLeft;
+                    }
+                });
+            });
+        });
+    });
+    
+</script>

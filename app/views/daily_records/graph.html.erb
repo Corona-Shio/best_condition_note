@@ -1,10 +1,53 @@
-<h1>Condition Chart</h1>
-<div class="button-group">
+<turbo-frame id="condition-chart" data-turbo-permanent>
+  <h1>Condition Chart</h1>
   <div class="period-selector btn-group">
     <%= period_graph_link '1ヶ月', 'month',        'daily' %>
     <%= period_graph_link '3ヶ月', 'three_months', 'daily' %>
     <%= period_graph_link '1年',   'year',         'weekly' %>
   </div>
-</div> 
 
-<%= render 'chart' %>
+  <%= render 'chart_template',
+    labels: @date2,
+    dataset_label: 'SLEEP',
+    data: @sleep2,
+    chart_id: 'sleep_chart',
+    gradient_color1: [0, 'rgba(63, 81, 181, 0.7)'],
+    gradient_color2: [1, 'rgba(63, 81, 181, 0.1)']
+  %>
+
+  <%= render 'chart_template',
+    labels: @date2,
+    dataset_label: 'MEAL',
+    data: @meal2,
+    chart_id: 'meal_chart',
+    gradient_color1: [0, 'rgba(76, 175, 80, 0.7)'],
+    gradient_color2: [1, 'rgba(76, 175, 80, 0.1)']
+  %>
+
+  <%= render 'chart_template',
+    labels: @date2,
+    dataset_label: 'METNAL',
+    data: @mental2,
+    chart_id: 'mental_chart',
+    gradient_color1: [0, 'rgba(103, 58, 183, 0.7)'],
+    gradient_color2: [1, 'rgba(103, 58, 183, 0.1)']
+  %>
+
+  <%= render 'chart_template',
+    labels: @date2,
+    dataset_label: 'TRAINING',
+    data: @training2,
+    chart_id: 'training_chart',
+    gradient_color1: [0, 'rgba(255, 87, 34, 0.7)'],
+    gradient_color2: [1, 'rgba(255, 87, 34, 0.1)']
+  %>
+
+  <%= render 'chart_template',
+    labels: @date2,
+    dataset_label: 'CONDITION',
+    data: @condition2,
+    chart_id: 'condition_chart',
+    gradient_color1: [0, 'rgba(233, 30, 99, 0.7)'],
+    gradient_color2: [1, 'rgba(233, 30, 99, 0.1)']
+  %>
+</turbo-frame>
