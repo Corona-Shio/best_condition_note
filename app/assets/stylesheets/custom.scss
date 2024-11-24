@@ -226,11 +226,6 @@ input {
   height: 38px;
 }
 
-
-// input {
-//   height: auto !important;
-// }
-
 #error_explanation {
   color: red;
   ul {
@@ -279,15 +274,7 @@ input {
   }
 }
 
-/* Table */
-.uniform-width {
-  width: 13%; /* 列の幅を同じにする */
-}
-
-.thead-dark th {
-  background-color: $gray-lighter;
-}
-
+/* navigation */
 .month-navigation {
   // background: #f8f9fa;
   padding: 15px 20px;
@@ -342,6 +329,69 @@ input {
       top: -0.03em;
     }
   }
+}
+
+/* Index */
+.table-like-container {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+
+  .table-row {
+    display: table-row;
+
+    .table-cell {
+      display: table-cell;
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: center;
+      width: calc(100% / 7);
+    }
+
+    &:hover {
+      background-color: #f8f8f8;
+    }
+
+    &.row-edit {
+      background-color: #d9edf7;
+    }
+  }
+}
+
+.table-header, .table-body {
+  display: table-row-group;
+}
+
+.table-cell {
+  .form-control {
+    text-align: center;
+  }
+  input {
+    margin: 0;
+  }
+}
+
+.table-btn-group {
+  display: flex;
+  gap: 5px;
+}
+
+.table-row.header .table-cell {
+  background-color: #fcfcfc;
+  font-weight: bold;
+}
+
+turbo-frame {
+  display: contents;
+}
+
+data-turbo-frame {
+  display: contents;
+}
+
+form {
+  display: contents;
+  margin-bottom: 0px;
 }
 
 /* Chart */

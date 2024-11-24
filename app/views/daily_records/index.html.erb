@@ -15,38 +15,28 @@
   </div>
 </div>
 
-<table class="table table-hover text-center">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col" class="text-center">Date</th>
-      <th scope="col" class="text-center uniform-width">Sleep</th>
-      <th scope="col" class="text-center uniform-width">Meal</th>
-      <th scope="col" class="text-center uniform-width">Mental</th>
-      <th scope="col" class="text-center uniform-width">Training</th>
-      <th scope="col" class="text-center uniform-width">Condition</th>
-      <th scope="col" class="text-center">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="table-like-container">
+
+  <div class="table-header">
+    <div class="table-row header">
+      <div class="table-cell">Date</div>
+      <div class="table-cell">Sleep</div>
+      <div class="table-cell">Meal</div>
+      <div class="table-cell">Mental</div>
+      <div class="table-cell">Training</div>
+      <div class="table-cell">Condition</div>
+      <div class="table-cell">Actions</div>
+    </div>
+  </div>
+
+  <div class="table-body">
     <% @calendar_dates.each do |date| %>
-      <tr>
-        <td><%= date %></td>
-        <% if record = @daily_records[date] %>
-          <td><%= record.sleep %></td>
-          <td><%= record.meal %></td>
-          <td><%= record.mental %></td>
-          <td><%= record.training %></td>
-          <td><%= record.condition %></td>
-          <td>
-            <%= link_to 'Edit', edit_daily_record_path(record) %>
-          </td>
-        <% else %>
-          <td colspan="5">記録なし</td>
-          <td>
-            <%= link_to 'New', new_daily_record_path(date: date) %>
-          </td>
-        <% end %>
-      </tr>
+      <% if record = @daily_records[date] %>
+        <%= render 'record_row', record: record, date: date %>
+      <% else %>
+        <%= render 'empty_record_row', date: date %>
+      <% end %>
     <% end %>
-  </tbody>
-</table>  
+  </div>
+
+</div>

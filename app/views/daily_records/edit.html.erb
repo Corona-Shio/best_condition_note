@@ -1,8 +1,18 @@
-<% provide(:title, 'Edit daily records') %>
-<% provide(:button_text, 'Edit daily record') %>
-<h1>Edit daily record</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render 'form' %>
+<%= turbo_frame_tag "record_#{@daily_record.id}" do %>
+  <div class="table-row row-edit">
+    <%= form_with(model: @daily_record) do |f| %>
+      <div class="table-cell"><%= @daily_record.date %></div>
+      <div class="table-cell"><%= f.number_field :sleep,     class: 'form-control', in: 1..5, step: 1 %></div>
+      <div class="table-cell"><%= f.number_field :meal,      class: 'form-control', in: 1..5, step: 1 %></div>
+      <div class="table-cell"><%= f.number_field :mental,    class: 'form-control', in: 1..5, step: 1 %></div>
+      <div class="table-cell"><%= f.number_field :training,  class: 'form-control', in: 1..5, step: 1 %></div>
+      <div class="table-cell"><%= f.number_field :condition, class: 'form-control', in: 1..5, step: 1 %></div>
+      <div class="table-cell">
+        <div class="table-btn-group">
+          <%= f.submit 'Submit',                                  class: 'btn btn-primary' %>
+          <%= link_to 'Cancel', daily_record_path(@daily_record), class: 'btn btn-warning',
+            data: { turbo_frame: "record_#{@daily_record.id}" } %>
+        </div>
+    <% end %>
   </div>
-</div>
+<% end %>

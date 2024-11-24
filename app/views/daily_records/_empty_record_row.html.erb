@@ -1,0 +1,9 @@
+<div class="table-row">
+  <div class="table-cell"><%= date %></div>
+  <% 5.times do %>
+    <div class="table-cell">-</div>
+  <% end %>
+  <div class="table-cell">
+    <%= link_to 'New', new_daily_record_path(date: date) %>
+  </div>
+</div>
