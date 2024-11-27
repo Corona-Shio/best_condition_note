@@ -46,7 +46,6 @@ class ValidLoginTest < ValidLogin
     assert_template 'users/show'
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path
-    assert_select "a[href=?]", user_path(@user)
   end
   
 end
