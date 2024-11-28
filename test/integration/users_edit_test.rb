@@ -43,7 +43,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_nil session[:forwarding_url]
     delete logout_path
     log_in_as(@user)
-    assert_redirected_to user_path(@user)
+    assert_redirected_to root_url
   end    
 
 
