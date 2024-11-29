@@ -17,6 +17,16 @@ class DailyRecordsController < ApplicationController
 
   def show
     @daily_record = current_user.daily_records.find(params[:id])
+
+    respond_to do |format|
+      format.html do
+        if turbo_frame_request?
+          format.turbo_stream
+        else
+          redirect_to daily_records_path
+        end
+      end
+    end
   end
 
   def graph
@@ -59,6 +69,16 @@ class DailyRecordsController < ApplicationController
 
   def edit
     @daily_record = current_user.daily_records.find(params[:id])
+
+    respond_to do |format|
+      format.html do
+        if turbo_frame_request?
+          format.turbo_stream
+        else
+          redirect_to daily_records_path
+        end
+      end
+    end
   end
 
   def update
