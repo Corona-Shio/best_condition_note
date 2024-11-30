@@ -9,6 +9,10 @@ module DailyRecordsHelper
     )
   end
 
+  def has_today_record?
+    current_user.daily_records.where(date: Date.current).exists?
+  end
+
   private
 
   def period_link_class(period)

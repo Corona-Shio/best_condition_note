@@ -1,15 +1,18 @@
 <h1>過去の記録</h1>
 <div class="month-navigation mb-3">
   <div class="navigation-container">
-    <%= link_to daily_records_path(month: @target_month.prev_month.strftime("%Y-%m")), class: "nav-link" do %>
+    <%= link_to daily_records_path(month: @target_month.prev_month.strftime("%Y-%m")),
+      class: "nav-link" do %>
       <i class="fas fa-chevron-left fa-2x"></i>
     <% end %>
     
     <span class="date-display">
-      <%= @target_month.strftime("%Y") %><span class="unit">年</span><%= @target_month.strftime("%m") %><span class="unit">月</span>
+      <%= @target_month.strftime("%Y") %><span class="unit">年</span>
+      <%= @target_month.strftime("%m") %><span class="unit">月</span>
     </span>
     
-    <%= link_to daily_records_path(month: @target_month.next_month.strftime("%Y-%m")), class: "nav-link" do %>
+    <%= link_to daily_records_path(month: @target_month.next_month.strftime("%Y-%m")),
+      class: "nav-link" do %>
       <i class="fas fa-chevron-right fa-2x"></i>
     <% end %>
   </div>
@@ -18,7 +21,7 @@
 <div class="table-like-container">
 
   <div class="table-header">
-    <div class="table-row header">
+    <div class="table-row">
       <div class="table-cell">Date</div>
       <div class="table-cell">Sleep</div>
       <div class="table-cell">Meal</div>
