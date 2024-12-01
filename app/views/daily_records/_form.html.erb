@@ -1,4 +1,5 @@
 <%= form_with(model: @daily_record) do |f| %>
+
   <%= render 'shared/error_messages', object: @daily_record %>
 
   <%= f.label :date %>
@@ -19,6 +20,6 @@
   <%= f.label :condition %>
   <%= f.number_field :condition, class: 'form-control', in: 1..5, step: 1 %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary mt-2" %>
   
 <% end %>

@@ -370,7 +370,7 @@ input {
 }
 
 /* DailyRecords Index */
-$cancel-button-size: 34px;
+$form-size: 34px;
 
 .table-like-container {
   width: 100%;
@@ -424,7 +424,7 @@ $cancel-button-size: 34px;
         }
 
         input {
-          height: auto;
+          height: $form-size;
           margin: 0;
         }
       }
@@ -471,7 +471,7 @@ $cancel-button-size: 34px;
         }
 
         input {
-          height: auto;
+          height: $form-size;
           margin: 0;
         }
       }
@@ -497,14 +497,14 @@ $cancel-button-size: 34px;
   }
 
   .cancel {
-    height: $cancel-button-size;
-    width:  $cancel-button-size;
+    height: $form-size;
+    width:  $form-size;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
     .glyphicon {
-      line-height: $cancel-button-size;
+      line-height: $form-size;
       top: 0px;
     }
   }

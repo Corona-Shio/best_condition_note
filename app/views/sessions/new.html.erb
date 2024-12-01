@@ -16,9 +16,10 @@
         <span>次回から自動ログイン</span>
       <% end %>
 
-      <%= f.submit "ログインする", class: "btn btn-primary" %>
+      <%= f.submit "ログインする", class: "btn btn-primary mb-2" %>
+      <span>初めての方は？ <%= link_to "アカウント作成", signup_path %></span>
     <% end %>
 
-    <p>初めての方は？ <%= link_to "アカウント作成", signup_path %></p>
+    
   </div>
 </div>
