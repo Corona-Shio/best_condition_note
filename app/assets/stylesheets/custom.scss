@@ -260,6 +260,14 @@ input {
   height: auto;
 }
 
+input[type="date"] {
+  appearance: none; /* ブラウザのデフォルトスタイルを無効化 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  /* その他のスタイル指定 */
+}
+
 .form-control {
   height: 38px;
 }
