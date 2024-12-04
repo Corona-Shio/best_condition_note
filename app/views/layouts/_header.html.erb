@@ -23,18 +23,21 @@
           <% if !has_today_record? %>
             <li>
               <%= link_to new_daily_record_path do %>
-                <i class="glyphicon glyphicon-plus"></i> 今日の記録
+                <i class="glyphicon glyphicon-plus"></i>
+                <%= responsive_text('今日の記録', '記録') %>
               <% end %>
             </li>
           <% end %>
             <li>
               <%= link_to graph_daily_records_path, data: { turbo: false } do %>
-                <i class="glyphicon glyphicon-signal"></i> 体調グラフ
+                <i class="glyphicon glyphicon-signal"></i>
+                <%= responsive_text('体調グラフ', 'グラフ') %>
               <% end %>
             </li>
             <li>
               <%= link_to daily_records_path do %>
-                <i class="glyphicon glyphicon-list"></i> 過去の記録
+                <i class="glyphicon glyphicon-list"></i>
+                <%= responsive_text('過去の記録', '参照') %>
               <% end %>
             </li>
             <li class="dropdown">
