@@ -112,6 +112,18 @@ p {
   }
 }
 
+@media (max-width: 767px) {
+  .desktop-dropdown {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
 /* footer */
 
 footer {

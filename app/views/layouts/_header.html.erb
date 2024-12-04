@@ -40,7 +40,7 @@
                 <%= responsive_text('過去の記録', '参照') %>
               <% end %>
             </li>
-            <li class="dropdown">
+            <li class="dropdown desktop-dropdown">
               <a href="#" id="account" class="dropdown-toggle">
                 <i class="glyphicon glyphicon-user"></i> アカウント <b class="caret"></b>
               </a>
@@ -54,9 +54,19 @@
                 </li>
               </ul>
             </li>
-        <% else %>
-          <li><%= link_to "ログインする", login_path %></li>
-        <% end %>
+            <li class="mobile-menu">
+              <%= link_to edit_user_path(current_user) do %>
+                <i class="glyphicon glyphicon-user"></i> アカウント設定
+              <% end %>
+            </li>
+            <li class="mobile-menu">
+              <%= link_to logout_path, data: { "turbo-method": :delete } do %>
+                <i class="glyphicon glyphicon-log-out"></i> ログアウト
+              <% end %>
+            </li>
+          <% else %>
+            <li><%= link_to "ログイン", login_path %></li>
+          <% end %>
       </ul>
     </nav>
   </div>
