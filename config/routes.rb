@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   delete "/logout",  to: "sessions#destroy"
 
   resources :users
-  resources :account_activations, only: [:edit]
   resources :daily_records do
     collection do
-      get 'graph'  # /daily_records/graph にマッピング
+      get "graph"
     end
   end
+  resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
   
 end
