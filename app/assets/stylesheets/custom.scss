@@ -385,17 +385,19 @@ input[type="date"]::-webkit-date-and-time-value {
     }
   }
 
-  .date-display {
-    font-size: 2.8rem;
+  .date-container {
+    display: flex;
+    align-items: baseline;
+    font-size: 3rem;
     font-weight: 600;
     color: #343a40;
   
-    .unit {
+    .small-text {
       font-size: 2rem;
-      font-weight: 1000;
-      margin: 0 2px;
+      font-weight: 650;
+      margin-right: 0.1rem;
       position: relative;
-      top: -0.03em;
+      top: -0.05em; // 必要に応じて値を調整
     }
   }
 }
