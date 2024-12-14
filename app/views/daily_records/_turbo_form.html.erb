@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "record_#{@daily_record.id}" do %>
+<%= turbo_frame_tag "record_#{daily_record.date}" do %>
   <div class="table-row row-edit">
     <%= form_with(model: @daily_record) do |f| %>
       <div class="table-cell" data-label="Date">     <%= f.date_field   :date,      class: 'form-control' %></div>
@@ -10,7 +10,8 @@
       <div class="table-cell" data-label="Actions">
         <div class="table-btn-group">
           <%= f.submit 'Submit', class: 'btn btn-primary submit' %>
-          <%= link_to daily_record_path(@daily_record),
+          <%= link_to daily_records_path(date: daily_record.date), 
+              data: { turbo_frame: "empty_record_row" }, 
               class: 'btn btn-warning cancel' do %>
             <i class="glyphicon glyphicon-remove"></i>
           <% end %>

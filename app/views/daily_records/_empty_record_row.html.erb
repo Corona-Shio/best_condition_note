@@ -1,11 +1,16 @@
-<div class="table-row">
-  <div class="table-cell" data-label="Date"><%= date %></div>
-  <div class="table-cell" data-label="Sleep">-</div>
-  <div class="table-cell" data-label="Meal">-</div>
-  <div class="table-cell" data-label="Mental">-</div>
-  <div class="table-cell" data-label="Training">-</div>
-  <div class="table-cell" data-label="Condition">-</div>
-  <div class="table-cell" data-label="Actions">
-    <%= link_to 'New', new_daily_record_path(date: date) %>
+<%= turbo_frame_tag "record_#{date}" do %>
+  <div class="table-row">
+    <div class="table-cell" data-label="Date"><%= date %></div>
+    <div class="table-cell" data-label="Sleep">-</div>
+    <div class="table-cell" data-label="Meal">-</div>
+    <div class="table-cell" data-label="Mental">-</div>
+    <div class="table-cell" data-label="Training">-</div>
+    <div class="table-cell" data-label="Condition">-</div>
+    <div class="table-cell" data-label="Actions">
+      <%= link_to new_daily_record_path(date: date),
+        data: { turbo_frame: "record_#{date}" } do %>
+        New
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>

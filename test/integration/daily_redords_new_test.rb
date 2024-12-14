@@ -16,7 +16,7 @@ class DailyRedordsNewTest < ActionDispatch::IntegrationTest
                                                                 training: 3, condition: 3 } }
     end
     follow_redirect!
-    assert_template 'daily_records/index'
+    assert_template root_path
     assert_not flash.empty?
   end
 

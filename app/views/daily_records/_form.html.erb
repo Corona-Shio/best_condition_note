@@ -1,4 +1,4 @@
-<%= form_with(model: @daily_record) do |f| %>
+<%= form_with(model: @daily_record, data: { turbo: false }) do |f| %>
 
   <%= render 'shared/error_messages', object: @daily_record %>
 

@@ -1,10 +1,10 @@
 <%= turbo_frame_tag "record_#{record.id}" do %>
   <div class="table-row">
-    <div class="table-cell" data-label="Date"><%= date %></div>
-    <div class="table-cell" data-label="Sleep"><%= record.sleep %></div>
-    <div class="table-cell" data-label="Meal"><%= record.meal %></div>
-    <div class="table-cell" data-label="Mental"><%= record.mental %></div>
-    <div class="table-cell" data-label="Training"><%= record.training %></div>
+    <div class="table-cell" data-label="Date">     <%= date             %></div>
+    <div class="table-cell" data-label="Sleep">    <%= record.sleep     %></div>
+    <div class="table-cell" data-label="Meal">     <%= record.meal      %></div>
+    <div class="table-cell" data-label="Mental">   <%= record.mental    %></div>
+    <div class="table-cell" data-label="Training"> <%= record.training  %></div>
     <div class="table-cell" data-label="Condition"><%= record.condition %></div>
     <div class="table-cell" data-label="Actions">
       <%= link_to edit_daily_record_path(record),
