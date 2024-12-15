@@ -1,6 +1,7 @@
 class DailyRecordsController < ApplicationController
-  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :show, :update, :destroy]
+  before_action :logged_in_user,      only: [:index, :show, :edit, :update, :destroy]
+  before_action :correct_user,        only: [:show, :edit, :update, :destroy]
+  before_action :check_direct_access, only: [:show, :edit, :empty]
 
   def index  
     @target_month = params[:month].present? ? parse_month_param(params[:month]) : Date.current
@@ -17,17 +18,6 @@ class DailyRecordsController < ApplicationController
 
   def show
     @daily_record = current_user.daily_records.find(params[:id])
-
-    respond_to do |format|
-      format.html do
-        if turbo_frame_request?
-          format.turbo_stream
-        else
-          redirect_to daily_records_path
-        end
-      end
-    end
-    
   end
 
   def empty
@@ -52,7 +42,7 @@ class DailyRecordsController < ApplicationController
           redirect_to root_path 
         end
         
-        format.turbo_stream do # Turbo frameリクエストはこちら
+        format.turbo_stream do # Turbo Streamsリクエストはこちら
           flash.now[:success] = "Daily_records created!"
         end
 
@@ -65,16 +55,6 @@ class DailyRecordsController < ApplicationController
 
   def edit
     @daily_record = current_user.daily_records.find(params[:id])
-
-    respond_to do |format|
-      format.html do
-        if turbo_frame_request?
-          format.turbo_stream
-        else
-          redirect_to daily_records_path
-        end
-      end
-    end
   end
 
   def update
@@ -86,7 +66,7 @@ class DailyRecordsController < ApplicationController
         format.html { redirect_to daily_records_path }
         format.turbo_stream
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html         { render :edit, status: :unprocessable_entity }
         format.turbo_stream { render :edit, status: :unprocessable_entity }
       end
     end
@@ -110,20 +90,27 @@ class DailyRecordsController < ApplicationController
 
   private
 
-  def daily_record_params
-    params.require(:daily_record).permit(:date,   :sleep,    :meal,
-                                         :mental, :training, :condition)
-  end
+    def daily_record_params
+      params.require(:daily_record).permit(:date,   :sleep,    :meal,
+                                           :mental, :training, :condition)
+    end
 
-  def correct_user
-    @daily_record = current_user.daily_records.find_by(id: params[:id])
-    redirect_to daily_records_path if @daily_record.nil?
-  end
+    def correct_user
+      @daily_record = current_user.daily_records.find_by(id: params[:id])
+      redirect_to daily_records_path if @daily_record.nil?
+    end
 
-  def parse_month_param(month_param)
-    Date.parse("#{month_param}-01")
-  rescue ArgumentError
-    Date.current
-  end
+    def parse_month_param(month_param)
+      Date.parse("#{month_param}-01")
+    rescue ArgumentError
+      Date.current
+    end
   
+    def check_direct_access
+      unless turbo_frame_request?
+        flash[:warning] = "直接のアクセスはサポートされていません"
+        redirect_to daily_records_path
+      end
+    end
+
 end

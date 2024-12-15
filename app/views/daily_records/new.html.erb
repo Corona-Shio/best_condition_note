@@ -1,6 +1,6 @@
 <% if turbo_frame_request? %>
-  <%= render partial: 'turbo_form',
+  <%= render partial: 'new_turbo_form',
     locals: { daily_record: @daily_record } %>
 <% else %>
-  <%= render 'full_form' %>
+  <%= render 'new_full_form' %>
 <% end %>
