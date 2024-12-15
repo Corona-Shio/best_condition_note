@@ -17,20 +17,77 @@ class DailyRecordsController < ApplicationController
 
   def show
     @daily_record = current_user.daily_records.find(params[:id])
-  
+
     respond_to do |format|
       format.html do
         if turbo_frame_request?
-          # # 空のレコード用のturbo_stream応答を追加
-          # render turbo_stream: turbo_stream.replace(
-          #   "record_new", 
-          #   partial: "empty_record", 
-          #   locals: { date: @daily_record.date }
-          # )
-          # format.turbo_stream
+          format.turbo_stream
         else
           redirect_to daily_records_path
         end
+      end
+    end
+    
+  end
+
+  def empty
+    @date = params[:date]
+  end
+
+  def new
+    @date = params[:date].present? ? Date.parse(params[:date]) : Date.current
+    @daily_record = current_user.daily_records.new(
+      date: @date, sleep: 3, meal: 3, mental: 3, training: 3, condition: 3
+    )
+  end
+
+  def create
+    @daily_record = current_user.daily_records.build(daily_record_params)
+
+    respond_to do |format|
+      if @daily_record.save
+        
+        format.html do # 通常はこちら
+          flash[:success] = "Daily record created!"
+          redirect_to root_path 
+        end
+        
+        format.turbo_stream do # Turbo frameリクエストはこちら
+          flash.now[:success] = "Daily_records created!"
+        end
+
+      else
+        format.html         { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render :new, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def edit
+    @daily_record = current_user.daily_records.find(params[:id])
+
+    respond_to do |format|
+      format.html do
+        if turbo_frame_request?
+          format.turbo_stream
+        else
+          redirect_to daily_records_path
+        end
+      end
+    end
+  end
+
+  def update
+    @daily_record = current_user.daily_records.find(params[:id])
+
+    respond_to do |format|
+      if @daily_record.update(daily_record_params)
+        flash.now[:success] = "Daily record updated"
+        format.html { redirect_to daily_records_path }
+        format.turbo_stream
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.turbo_stream { render :edit, status: :unprocessable_entity }
       end
     end
   end
@@ -49,65 +106,6 @@ class DailyRecordsController < ApplicationController
     @training  = DailyRecord.aggregate_scores2(@daily_records, :training,  view_type: @view_type)
     @condition = DailyRecord.aggregate_scores2(@daily_records, :condition, view_type: @view_type)
     @date      = DailyRecord.aggregate_scores2(@daily_records, :date,      view_type: @view_type)
-  end
-
-  def new
-    @date = params[:date].present? ? Date.parse(params[:date]) : Date.current
-    @daily_record = current_user.daily_records.new(
-      date: @date, sleep: 3, meal: 3, mental: 3, training: 3, condition: 3
-    )
-    
-  end
-
-  def create
-    @daily_record = current_user.daily_records.build(daily_record_params)
-
-    respond_to do |format|
-      if @daily_record.save
-        # 通常はこちら
-        format.html do
-          flash[:success] = "Daily record created!"
-          redirect_to root_path 
-        end
-        # Turbo frameリクエストはこちら
-        format.turbo_stream do
-          flash.now[:success] = "Daily_records created!"
-        end
-      else
-        format.html         { render :new, status: :unprocessable_entity }
-        format.turbo_stream { render :new, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def edit
-    @daily_record = current_user.daily_records.find(params[:id])
-
-    # URLで直接/editに遷移した場合はindexにリダイレクトする
-    respond_to do |format|
-      format.html do
-        if turbo_frame_request?
-          format.turbo_stream
-        else
-          redirect_to daily_records_path
-        end
-      end
-    end
-  end
-
-  def update
-    @daily_record = current_user.daily_records.find(params[:id])
-
-    respond_to do |format|
-      if @daily_record.update(daily_record_params)
-        flash.now[:success] = "Daily record updated"
-        format.html { redirect_to daily_records_path } # 通常はこちら
-        format.turbo_stream # turboはこちら：update.turbo_stream.erbを参照
-      else
-        format.html         { render :edit, status: :unprocessable_entity }
-        format.turbo_stream { render :edit, status: :unprocessable_entity }
-      end
-    end
   end
 
   private

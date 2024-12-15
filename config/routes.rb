@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :daily_records do
     collection do
       get "graph"
+      get "empty"
     end
   end
   resources :account_activations, only: [:edit]
