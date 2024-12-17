@@ -3,7 +3,7 @@ class DailyRecordsController < ApplicationController
   before_action :correct_user,        only: [:show, :edit, :update, :destroy]
   before_action :check_direct_access, only: [:show, :edit, :empty]
 
-  def index  
+  def index
     @target_month = params[:month].present? ? parse_month_param(params[:month]) : Date.current
   
     @month_start = @target_month.beginning_of_month
@@ -66,6 +66,7 @@ class DailyRecordsController < ApplicationController
         format.html { redirect_to daily_records_path }
         format.turbo_stream
       else
+        flash.now[:danger] = "danger"
         format.html         { render :edit, status: :unprocessable_entity }
         format.turbo_stream { render :edit, status: :unprocessable_entity }
       end
