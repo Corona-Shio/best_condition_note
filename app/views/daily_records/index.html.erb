@@ -35,7 +35,7 @@
   <div class="table-body">
     <% @calendar_dates.each do |date| %>
       <% if record = @daily_records[date] %>
-        <%= render 'record_row', record: record, date: date %>
+        <%= render 'record_row', daily_record: record %>
       <% else %>
         <%= render 'empty_record_row', date: date %>
       <% end %>
