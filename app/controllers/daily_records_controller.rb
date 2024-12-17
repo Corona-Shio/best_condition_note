@@ -66,7 +66,6 @@ class DailyRecordsController < ApplicationController
         format.html { redirect_to daily_records_path }
         format.turbo_stream
       else
-        flash.now[:danger] = "danger"
         format.html         { render :edit, status: :unprocessable_entity }
         format.turbo_stream { render :edit, status: :unprocessable_entity }
       end
