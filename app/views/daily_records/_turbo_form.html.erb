@@ -1,6 +1,6 @@
 <div class="table-row row-edit">
   <%= form_with(model: daily_record) do |f| %>
-    <div class="table-cell" data-label="Date">     <%= f.date_field   :date,      class: 'form-control' %></div>
+    <div class="table-cell" data-label="Date">     <%= f.date_field   :date,      class: 'form-control', readonly: true %></div>
     <div class="table-cell" data-label="Sleep">    <%= f.number_field :sleep,     class: 'form-control', in: 1..5, step: 1 %></div>
     <div class="table-cell" data-label="Meal">     <%= f.number_field :meal,      class: 'form-control', in: 1..5, step: 1 %></div>
     <div class="table-cell" data-label="Mental">   <%= f.number_field :mental,    class: 'form-control', in: 1..5, step: 1 %></div>

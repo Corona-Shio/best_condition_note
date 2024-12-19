@@ -1,0 +1,7 @@
+<%= render 'record_row', 
+  daily_record: nil,
+  frame_id:     "record_#{date}",
+  date:         date,
+  action_path:  new_daily_record_path(date: date),
+  action:       "New"
+%>

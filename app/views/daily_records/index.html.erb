@@ -1,4 +1,5 @@
 <h1>過去の記録</h1>
+
 <div class="month-navigation mb-3">
   <div class="navigation-container">
     <%= link_to daily_records_path(month: @target_month.prev_month.strftime("%Y-%m")),
@@ -34,10 +35,10 @@
 
   <div class="table-body">
     <% @calendar_dates.each do |date| %>
-      <% if record = @daily_records[date] %>
-        <%= render 'record_row', daily_record: record %>
+      <% if daily_record = @daily_records[date] %>
+        <%= render 'any_record', daily_record: daily_record %>
       <% else %>
-        <%= render 'empty_record_row', date: date %>
+        <%= render 'empty_record', date: date %>
       <% end %>
     <% end %>
   </div>

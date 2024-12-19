@@ -1,15 +1,27 @@
-<%= turbo_frame_tag daily_record do %>
+<%= turbo_frame_tag daily_record || frame_id do %>
   <div class="table-row">
-    <div class="table-cell" data-label="Date">     <%= daily_record.date      %></div>
-    <div class="table-cell" data-label="Sleep">    <%= daily_record.sleep     %></div>
-    <div class="table-cell" data-label="Meal">     <%= daily_record.meal      %></div>
-    <div class="table-cell" data-label="Mental">   <%= daily_record.mental    %></div>
-    <div class="table-cell" data-label="Training"> <%= daily_record.training  %></div>
-    <div class="table-cell" data-label="Condition"><%= daily_record.condition %></div>
+    <div class="table-cell" data-label="Date">
+      <%= daily_record&.date || date %>
+    </div>
+    <div class="table-cell" data-label="Sleep">
+      <%= daily_record&.sleep || '-' %>
+    </div>
+    <div class="table-cell" data-label="Meal">
+      <%= daily_record&.meal || '-' %>
+    </div>
+    <div class="table-cell" data-label="Mental">
+      <%= daily_record&.mental || '-' %>
+    </div>
+    <div class="table-cell" data-label="Training">
+      <%= daily_record&.training || '-' %>
+    </div>
+    <div class="table-cell" data-label="Condition">
+      <%= daily_record&.condition || '-' %>
+    </div>
     <div class="table-cell" data-label="Actions">
-      <%= link_to edit_daily_record_path(daily_record),
-        data: { turbo_frame: "daily_record_#{daily_record.id}" } do %>
-        Edit
+      <%= link_to action_path,
+      data: { turbo_frame: daily_record || frame_id } do %>
+        <%= action %>
       <% end %>
     </div>
   </div>
