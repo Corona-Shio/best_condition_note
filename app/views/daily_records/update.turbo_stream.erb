@@ -1,4 +1,4 @@
 <%= turbo_stream.replace @daily_record do %>
-  <%= render 'any_record', daily_record: @daily_record %>
+  <%= render @daily_record %>
 <% end %>
 <%= turbo_stream_flash %> 

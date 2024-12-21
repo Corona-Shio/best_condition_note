@@ -91,4 +91,3 @@ class DailyRecord < ApplicationRecord
   end
 
 end
-  
