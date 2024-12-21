@@ -80,12 +80,12 @@ class DailyRecordsController < ApplicationController
                                 .in_period(@period)
                                 .order(date: :asc) 
     
-    @sleep     = DailyRecord.aggregate_scores2(@daily_records, :sleep,     view_type: @view_type)
-    @meal      = DailyRecord.aggregate_scores2(@daily_records, :meal,      view_type: @view_type)
-    @mental    = DailyRecord.aggregate_scores2(@daily_records, :mental,    view_type: @view_type)
-    @training  = DailyRecord.aggregate_scores2(@daily_records, :training,  view_type: @view_type)
-    @condition = DailyRecord.aggregate_scores2(@daily_records, :condition, view_type: @view_type)
-    @date      = DailyRecord.aggregate_scores2(@daily_records, :date,      view_type: @view_type)
+    @sleep     = DailyRecord.aggregate_scores(@daily_records, :sleep,     view_type: @view_type)
+    @meal      = DailyRecord.aggregate_scores(@daily_records, :meal,      view_type: @view_type)
+    @mental    = DailyRecord.aggregate_scores(@daily_records, :mental,    view_type: @view_type)
+    @training  = DailyRecord.aggregate_scores(@daily_records, :training,  view_type: @view_type)
+    @condition = DailyRecord.aggregate_scores(@daily_records, :condition, view_type: @view_type)
+    @date      = DailyRecord.aggregate_scores(@daily_records, :date,      view_type: @view_type)
   end
 
   private
