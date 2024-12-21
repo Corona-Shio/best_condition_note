@@ -11,12 +11,12 @@ class DailyRecord < ApplicationRecord
 
   # 重みづけ定数
   SCORE_WEIGHTS = {
-    sleep:      6 * 4,
-    meal:       6 * 3,
-    mental:     6 * 2,
-    training:   6 * 1,
-    condition:  6 * 0,
-    date:       6 * 0,
+    sleep:     6 * 4,
+    meal:      6 * 3,
+    mental:    6 * 2,
+    training:  6 * 1,
+    condition: 6 * 0,
+    date:      6 * 0,
   }
 
   # 期間でフィルタするスコープ
@@ -34,7 +34,6 @@ class DailyRecord < ApplicationRecord
   }
 
   def self.aggregate_scores(records, attribute, view_type: 'daily')
-    
     case view_type
     when 'daily'
       records.pluck(attribute)
