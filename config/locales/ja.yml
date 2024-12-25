@@ -1,11 +1,28 @@
 ja:
   activerecord:
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワードの確認
+        current_password: 現在のパスワード
+        remember_me: ログイン状態を保持する
+      daily_record:
+        date: Date
+        sleep: Sleep
+        meal: Meal
+        mental: Mental
+        training: Training
+        condition: Condition
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  session:
+    forgot_password: パスワードをお忘れの方
   date:
     abbr_day_names:
       - 日
@@ -144,6 +161,7 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+      edit: 編集する
   number:
     currency:
       format:

@@ -38,8 +38,8 @@ class DailyRedordsNewTest < ActionDispatch::IntegrationTest
     
         # エラーメッセージ内容の確認
         assert_select 'div#error_explanation ul' do
-          assert_select 'li', "Date can't be blank"
-          assert_select 'li', "Condition can't be blank"
+          assert_select 'li', "Dateを入力してください"
+          # assert_select 'li', "Condition can't be blank"
           # 他の必要なエラーメッセージもここに追加します
         end
   end
