@@ -6,19 +6,54 @@
   <%= f.date_field :date,        class: 'form-control' %>
 
   <%= f.label :sleep %>
-  <%= f.number_field :sleep,     class: 'form-control', in: 1..5, step: 1, required: true %>
+  <div class="radio-group" data-required="true">
+    <% (1..5).each do |value| %>
+      <div class="radio-inline">
+        <%= f.radio_button :sleep, value, id: "sleep_#{value}" %>
+        <label for="sleep_<%= value %>"><%= value %></label>
+      </div>
+    <% end %>
+  </div>
 
   <%= f.label :meal %>
-  <%= f.number_field :meal,      class: 'form-control', in: 1..5, step: 1, required: true %>
+    <div class="radio-group" data-required="true">
+    <% (1..5).each do |value| %>
+      <div class="radio-inline">
+        <%= f.radio_button :meal, value, id: "meal_#{value}" %>
+        <label for="meal_<%= value %>"><%= value %></label>
+      </div>
+    <% end %>
+  </div>
 
   <%= f.label :mental %>
-  <%= f.number_field :mental,    class: 'form-control', in: 1..5, step: 1, required: true %>
+    <div class="radio-group" data-required="true">
+    <% (1..5).each do |value| %>
+      <div class="radio-inline">
+        <%= f.radio_button :mental, value, id: "mental_#{value}" %>
+        <label for="mental_<%= value %>"><%= value %></label>
+      </div>
+    <% end %>
+  </div>
 
   <%= f.label :training %>
-  <%= f.number_field :training,  class: 'form-control', in: 1..5, step: 1, required: true %>
+    <div class="radio-group" data-required="true">
+    <% (1..5).each do |value| %>
+      <div class="radio-inline">
+        <%= f.radio_button :training, value, id: "training_#{value}" %>
+        <label for="training_<%= value %>"><%= value %></label>
+      </div>
+    <% end %>
+  </div>
 
   <%= f.label :condition %>
-  <%= f.number_field :condition, class: 'form-control', in: 1..5, step: 1, required: true %>
+    <div class="radio-group" data-required="true">
+    <% (1..5).each do |value| %>
+      <div class="radio-inline">
+        <%= f.radio_button :condition, value, id: "condition_#{value}" %>
+        <label for="condition_<%= value %>"><%= value %></label>
+      </div>
+    <% end %>
+  </div>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary mt-2" %>
   
