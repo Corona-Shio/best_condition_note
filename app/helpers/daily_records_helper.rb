@@ -13,6 +13,17 @@ module DailyRecordsHelper
     current_user.daily_records.where(date: Date.current).exists?
   end
 
+  def weekend_day_class(date)
+    case 
+    when date.saturday?
+      'saturday'
+    when date.sunday?
+      'sunday'
+    else
+      'weekday'
+    end
+  end
+
   private
 
   def period_link_class(period)

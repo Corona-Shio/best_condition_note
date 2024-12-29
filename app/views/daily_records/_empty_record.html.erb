@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "record_#{date}" do %>
   <div class="table-row">
-    <div class="table-cell" data-label="Date">
-      <%= date %>
+    <div class="table-cell <%= weekend_day_class(date) %>" data-label="Date">
+      <%= l(date, format: :table) %>
     </div>
     <div class="table-cell" data-label="Sleep">
       -

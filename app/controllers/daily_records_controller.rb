@@ -21,7 +21,7 @@ class DailyRecordsController < ApplicationController
   end
 
   def empty
-    @date = params[:date]
+    @date = Date.parse(params[:date])
   end
 
   def new
