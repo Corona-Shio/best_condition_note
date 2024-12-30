@@ -1,4 +1,4 @@
-<%= turbo_stream.replace @daily_record do %>
+<%= turbo_stream.replace dom_id(@daily_record) do %>
   <%= render 'edit_form', daily_record: @daily_record %>
 <% end %>
 <%= turbo_stream_flash %> 

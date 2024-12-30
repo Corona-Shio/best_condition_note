@@ -2,7 +2,7 @@
 
 one:
   user: michael
-  date: 2024-10-26
+  date: <%= Date.today %>
   sleep: 3
   meal: 3
   mental: 3
@@ -11,9 +11,9 @@ one:
 
 two:
   user: archer
-  date: 2024-10-26
+  date: <%= Date.today %>
   sleep: 1
-  meal:
+  meal: 1
   mental: 1
   training: 1
   condition: 1

@@ -20,10 +20,8 @@
     </div>
     <div class="table-cell" data-label="Actions">
       <div class="table-btn-group">
-        <%= f.submit 'Submit', class: 'btn btn-primary submit' %>
-        <%= link_to cancel_path,
-            data: cancel_data,
-            class: 'btn btn-warning cancel' do %>
+        <%= f.submit 'Submit',   class: 'btn btn-primary submit' %>
+        <%= link_to cancel_path, class: 'btn btn-warning cancel' do %>
           <i class="glyphicon glyphicon-remove"></i>
         <% end %>
       </div>

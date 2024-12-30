@@ -19,8 +19,7 @@
       -
     </div>
     <div class="table-cell" data-label="Actions">
-      <%= link_to 'New', new_daily_record_path(date: date),
-        data: { turbo_frame: "record_#{date}" } %>
+      <%= link_to 'New', new_daily_record_path(date: date) %>
     </div>
   </div>
 <% end %>

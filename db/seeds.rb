@@ -16,6 +16,15 @@ User.create!(name:  "Example User",
              activated: true,
              activated_at: Time.zone.now)
 
+# サブのサンプルユーザーを1人作成する
+User.create!(name:  "Sample User",
+             email: "sample@railstutorial.org",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             admin: false,
+             activated: true,
+             activated_at: Time.zone.now)
+
 # 追加のユーザーをまとめて生成する
 99.times do |n|
   name  = Faker::Name.name
@@ -49,7 +58,7 @@ end
 user = User.find_or_create_by(id: 2)
 
 # 1ヶ月分のスコアデータを生成
-(1..10).each do |day|
+(1..365).each do |day|
   DailyRecord.create!(
     user: user,
     date: Date.today - day,
