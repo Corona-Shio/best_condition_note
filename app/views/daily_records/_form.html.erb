@@ -3,7 +3,7 @@
   <%= render 'shared/error_messages', object: @daily_record %>
 
   <%= f.label :date %>
-  <%= f.date_field :date,        class: 'form-control' %>
+  <%= f.date_field :date, class: 'form-control' %>
 
   <%= f.label :sleep %>
   <div class="radio-group" data-required="true">
@@ -55,6 +55,6 @@
     <% end %>
   </div>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary mt-2" %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary btn-new mt-3" %>
   
 <% end %>
