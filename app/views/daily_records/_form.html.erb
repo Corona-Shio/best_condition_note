@@ -5,55 +5,18 @@
   <%= f.label :date %>
   <%= f.date_field :date, class: 'form-control' %>
 
-  <%= f.label :sleep %>
-  <div class="radio-group" data-required="true">
-    <% (1..5).each do |value| %>
-      <div class="radio-inline">
-        <%= f.radio_button :sleep, value, id: "sleep_#{value}" %>
-        <label for="sleep_<%= value %>"><%= value %></label>
-      </div>
-    <% end %>
-  </div>
-
-  <%= f.label :meal %>
+  <% [:sleep, :meal, :mental, :training, :condition].each do |attribute| %>
+    <%= f.label attribute %>
     <div class="radio-group" data-required="true">
-    <% (1..5).each do |value| %>
-      <div class="radio-inline">
-        <%= f.radio_button :meal, value, id: "meal_#{value}" %>
-        <label for="meal_<%= value %>"><%= value %></label>
-      </div>
-    <% end %>
-  </div>
-
-  <%= f.label :mental %>
-    <div class="radio-group" data-required="true">
-    <% (1..5).each do |value| %>
-      <div class="radio-inline">
-        <%= f.radio_button :mental, value, id: "mental_#{value}" %>
-        <label for="mental_<%= value %>"><%= value %></label>
-      </div>
-    <% end %>
-  </div>
-
-  <%= f.label :training %>
-    <div class="radio-group" data-required="true">
-    <% (1..5).each do |value| %>
-      <div class="radio-inline">
-        <%= f.radio_button :training, value, id: "training_#{value}" %>
-        <label for="training_<%= value %>"><%= value %></label>
-      </div>
-    <% end %>
-  </div>
-
-  <%= f.label :condition %>
-    <div class="radio-group" data-required="true">
-    <% (1..5).each do |value| %>
-      <div class="radio-inline">
-        <%= f.radio_button :condition, value, id: "condition_#{value}" %>
-        <label for="condition_<%= value %>"><%= value %></label>
-      </div>
-    <% end %>
-  </div>
+      <%= f.collection_radio_buttons attribute,
+          (1..5).map { |n| [n, n] }, :first, :last do |b| %>
+        <div class="radio-inline">
+          <%= b.radio_button %>
+          <%= b.label %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary btn-new mt-3" %>
   
