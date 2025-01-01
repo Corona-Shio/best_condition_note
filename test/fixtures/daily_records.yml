@@ -2,7 +2,7 @@
 
 one:
   user: michael
-  date: <%= Date.today %>
+  date: <%= Date.today.beginning_of_month %>
   sleep: 3
   meal: 3
   mental: 3

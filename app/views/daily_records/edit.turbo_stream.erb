@@ -1,3 +1,4 @@
+<%# updateが失敗してeditに戻す時に使用する %>
 <%= turbo_stream.replace dom_id(@daily_record) do %>
   <%= render 'edit_form', daily_record: @daily_record %>
 <% end %>

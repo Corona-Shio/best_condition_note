@@ -1,3 +1,4 @@
+<%# createが失敗してnewに戻す時に使用する %>
 <%= turbo_stream.replace "record_#{@daily_record.date}" do %>
   <%= render 'new_form', daily_record: @daily_record %>
 <% end %>
