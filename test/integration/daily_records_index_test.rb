@@ -15,6 +15,7 @@ class TurboEditLinkTest < DailyRecordIndex
     get daily_records_path
     assert_response :success
 
+
     assert_select '.row-edit', 0
     assert_select "turbo-frame##{dom_id(@one)}" do
       assert_select "a", text: 'Edit', 

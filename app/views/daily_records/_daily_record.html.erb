@@ -1,4 +1,4 @@
-<%= turbo_frame_tag dom_id(daily_record) do %>
+<%= turbo_frame_tag daily_record do %>
   <div class="table-row">
     <div class="table-cell <%= weekend_day_class(daily_record.date) %>" data-label="Date">
       <%= l(daily_record.date, format: :table) %>

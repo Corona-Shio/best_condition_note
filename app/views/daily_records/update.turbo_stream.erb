@@ -1,4 +1,2 @@
-<%= turbo_stream.replace dom_id(@daily_record) do %>
-  <%= render @daily_record %>
-<% end %>
-<%= turbo_stream_flash %> 
+<%= turbo_stream.replace @daily_record %>
+<%= turbo_stream_flash %>
