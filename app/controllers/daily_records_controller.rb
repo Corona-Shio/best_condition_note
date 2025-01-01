@@ -2,6 +2,7 @@ class DailyRecordsController < ApplicationController
   before_action :logged_in_user,      only: [:index, :show, :edit, :update, :destroy]
   before_action :correct_user,        only: [:show, :edit, :update, :destroy]
   before_action :check_direct_access, only: [:show, :edit, :empty]
+  before_action :set_daily_record,    only: [:show, :edit, :update, :destroy]
 
   def index
     @target_month = params[:month].present? ? parse_month_param(params[:month]) : Date.current
@@ -17,7 +18,6 @@ class DailyRecordsController < ApplicationController
   end
 
   def show
-    @daily_record = current_user.daily_records.find(params[:id])
   end
 
   def empty
@@ -34,41 +34,29 @@ class DailyRecordsController < ApplicationController
   def create
     @daily_record = current_user.daily_records.build(daily_record_params)
 
-    respond_to do |format|
       if @daily_record.save
-        
-        format.html do # 通常はこちら
-          flash[:success] = "Daily record created!"
-          redirect_to root_path 
+        respond_to do |format|
+          format.html do
+            flash[:success] = t('flash.daily_records.create.success')
+            redirect_to graph_daily_records_path 
+          end
+          format.turbo_stream do
+            flash.now[:success] = t('flash.daily_records.create.success')
+          end
         end
-        
-        format.turbo_stream do # Turbo Streamsリクエストはこちら
-          flash.now[:success] = "Daily_records created!"
-        end
-
       else
-        format.html         { render :new, status: :unprocessable_entity }
-        format.turbo_stream { render :new, status: :unprocessable_entity }
+        render :new, status: :unprocessable_entity
       end
-    end
   end
 
   def edit
-    @daily_record = current_user.daily_records.find(params[:id])
   end
 
   def update
-    @daily_record = current_user.daily_records.find(params[:id])
-
-    respond_to do |format|
-      if @daily_record.update(daily_record_params)
-        flash.now[:success] = "Daily record updated"
-        format.html { redirect_to daily_records_path }
-        format.turbo_stream
-      else
-        format.html         { render :edit, status: :unprocessable_entity }
-        format.turbo_stream { render :edit, status: :unprocessable_entity }
-      end
+    if @daily_record.update(daily_record_params)
+      flash.now[:success] = t('flash.daily_records.update.success')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -89,6 +77,10 @@ class DailyRecordsController < ApplicationController
   end
 
   private
+
+    def set_daily_record
+      @daily_record = current_user.daily_records.find(params[:id])
+    end
 
     def daily_record_params
       params.require(:daily_record).permit(:date,   :sleep,    :meal,

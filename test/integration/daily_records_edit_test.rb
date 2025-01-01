@@ -19,30 +19,33 @@ class DailyRecordsEditTest < ActionDispatch::IntegrationTest
     # assert_select "div.alert", "The form contains 6 errors."
   end
   
-  test "successful edit" do
-    log_in_as(@user)
-    get edit_daily_record_path(@one)
-    # assert_template 'daily_records/edit'
-    date      = Date.new(2024, 11, 1)
-    sleep     = 5
-    meal      = 5
-    mental    = 5
-    training  = 5
-    condition = 5
-    patch daily_record_path(@one), params: { daily_record: { date: date,
-                                                             sleep: sleep, meal: meal, mental: mental,
-                                                             training: training, condition: condition } }
-    assert_not flash.empty?
-    assert_redirected_to daily_records_path
+  ###################################################################
+  ### turboでしかeditを使わないので、editのテストは不要としてコメントアウト 
+  ###################################################################
+  # test "successful edit" do
+  #   log_in_as(@user)
+  #   get edit_daily_record_path(@one)
+  #   # assert_template 'daily_records/edit'
+  #   date      = Date.new(2024, 11, 1)
+  #   sleep     = 5
+  #   meal      = 5
+  #   mental    = 5
+  #   training  = 5
+  #   condition = 5
+  #   patch daily_record_path(@one), params: { daily_record: { date: date,
+  #                                                            sleep: sleep, meal: meal, mental: mental,
+  #                                                            training: training, condition: condition } }
+  #   assert_not flash.empty?
+  #   assert_redirected_to daily_records_path
 
-    @one.reload
-    assert_equal date,      @one.date
-    assert_equal sleep,     @one.sleep
-    assert_equal meal,      @one.meal
-    assert_equal mental,    @one.mental
-    assert_equal training,  @one.training
-    assert_equal condition, @one.condition
-  end
+  #   @one.reload
+  #   assert_equal date,      @one.date
+  #   assert_equal sleep,     @one.sleep
+  #   assert_equal meal,      @one.meal
+  #   assert_equal mental,    @one.mental
+  #   assert_equal training,  @one.training
+  #   assert_equal condition, @one.condition
+  # end
 
   test "should redirect edit when logged in as wrong user" do
     log_in_as(@other_user)

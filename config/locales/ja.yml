@@ -15,6 +15,7 @@ ja:
         mental: Mental
         training: Training
         condition: Condition
+        updated: "更新しました"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -23,6 +24,14 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
   session:
     forgot_password: パスワードをお忘れの方
+  flash:
+    daily_records:
+      create:
+        success: "記録に成功しました"
+        error: "記録に失敗しました。"
+      update:
+        success: "更新に成功しました"
+        error: "更新に失敗しました。"
   date:
     abbr_day_names:
       - 日
