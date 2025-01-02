@@ -1,4 +1,4 @@
-document.addEventListener("turbo:load", function() {
+document.addEventListener('DOMContentLoaded', () => {
   const charts = document.querySelectorAll('[data-chart-type="line"]');
     
   charts.forEach(canvas => {

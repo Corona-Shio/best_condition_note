@@ -6,3 +6,7 @@
     <%= render 'form' %>
   </div>
 </div>
+
+<% content_for :js do %>
+  <%= javascript_import_module_tag "custom/form" %>
+<% end %>

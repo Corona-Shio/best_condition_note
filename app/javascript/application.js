@@ -2,9 +2,6 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "custom/menu"
-import "custom/form"
-import "custom/scroll"
-import "custom/chart"
 
 // Graph
 import "chartkick"
