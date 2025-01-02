@@ -57,8 +57,20 @@ document.addEventListener("turbo:load", function() {
                   display: false,
               },
               tooltip: {
-                  enabled: true,
-              }
+                enabled: true,
+                callbacks: {
+                    // ツールチップのタイトルを日本式にフォーマット
+                    title: function(tooltipItems) {
+                        if (tooltipItems.length > 0) {
+                            const tooltipItem = tooltipItems[0];
+                            const timestamp = tooltipItem.parsed.x;
+                            const date = new Date(timestamp);
+                            return date.toLocaleDateString('ja-JP', { dateStyle: 'short' });
+                        }
+                        return '';
+                    },
+                }
+            }
           },
           scales: {
               x: {
