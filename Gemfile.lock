@@ -98,6 +98,8 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    dockerfile-rails (1.6.25)
+      rails (>= 3.0.0)
     erubi (1.13.0)
     execjs (2.10.0)
     faker (2.21.0)
@@ -286,6 +288,7 @@ DEPENDENCIES
   capybara
   chartkick
   debug
+  dockerfile-rails (>= 1.6)
   faker (= 2.21.0)
   guard (= 2.18.0)
   guard-minitest (= 2.4.6)
