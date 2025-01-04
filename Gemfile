@@ -85,5 +85,8 @@ group :test do
   gem "guard",              "2.18.0"
   gem "guard-minitest",     "2.4.6"
   gem 'rails-controller-testing'
-  
+end
+
+group :production do
+  gem "pg", "1.3.5"
 end
