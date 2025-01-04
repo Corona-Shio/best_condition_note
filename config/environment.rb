@@ -5,4 +5,4 @@ require_relative "application"
 Rails.application.initialize!
 
 # あらゆるブラウザでTLS（Transport Layer Security）を使うように強制する
-config.force_ssl = true
+# config.force_ssl = true
