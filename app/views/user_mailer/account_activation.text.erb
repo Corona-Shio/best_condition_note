@@ -1,6 +1,6 @@
 こんにちは、<%= @user.name %> さん
 
-Best-Condition-Noteへのサインアップありがとうございます！
+Best Condition Noteへのサインアップありがとうございます！
 
 以下のリンクをクリックするとアカウントの有効化が完了します
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
