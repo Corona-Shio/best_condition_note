@@ -3,7 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # 独自ドメインの設定
   config.hosts << 'best-condition-note.com'
-  # config.hosts << 'best-condition-book.onrender.com'
+  config.hosts << 'best-condition-book.onrender.com'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
