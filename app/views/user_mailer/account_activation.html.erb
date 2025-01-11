@@ -1,10 +1,38 @@
-<h1>Sample App</h1>
+<body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
 
-<p>Hi <%= @user.name %>,</p>
+    <h1 style="color: #333; text-align: center;">アカウントの確認</h1>
 
-<p>
-Welcome to the Sample App! Click on the link below to activate your account:
-</p>
+    <p style="line-height: 1.6;">
+        <%= @user.name %> さん
+    </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
-                                                    email: @user.email) %>
+    <p style="line-height: 1.6;">
+        Best-Condition-Noteへようこそ！<br>
+        アカウントを有効化するには、以下のボタンをクリックしてください。
+    </p>
+
+    <div style="text-align: center; margin: 30px 0;">
+        <%= link_to "アカウントを有効化", edit_account_activation_url(@user.activation_token, email: @user.email),
+          style: "
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 25px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            font-weight: bold;
+          "
+        %>
+    </div>
+
+    <p style="line-height: 1.6; color: #666;">
+        このメールに心当たりがない場合は、無視してください。
+    </p>
+
+    <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+    <footer style="text-align: center; color: #888;">
+        <p>Best-Condition-Note.</p>
+    </footer>
+</body>
+</html>
