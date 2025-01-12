@@ -24,4 +24,35 @@ module ApplicationHelper
     turbo_stream.update "flash", partial: "shared/flash"
   end
 
+  def default_meta_tags
+    {
+      site: 'Best Condition Note',
+      description: '日々の記録が、未来のあなたをデザインする。Best Condition Noteは、あなたの日々の体調の記録を簡単に残せる記録アプリです。',
+      reverse: true,
+      separator: '|',
+      og: default_og,
+      # twitter: default_twitter_card
+    }
+  end
+  
+  private
+  
+  def default_og
+    {
+      title: :full_title,
+      description: :description,
+      url: request.url,
+      image: asset_url('ogp/720p.png'),
+      type: 'website',
+      site_name: 'Best Condition Note'
+    }
+  end
+  
+  # def default_twitter_card
+  #   {
+  #     card: 'summary_large_image',
+  #     site: '@hogehoge'
+  #   }
+  # end
+
 end
