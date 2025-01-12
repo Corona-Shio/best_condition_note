@@ -30,8 +30,13 @@ module ApplicationHelper
       description: '日々の記録が、未来のあなたをデザインする。Best Condition Noteは、あなたの日々の体調の記録を簡単に残せる記録アプリです。',
       reverse: true,
       separator: '|',
+      keywords: [ '健康', '体調', '日記', '管理', '記録', 'アプリ', 'ヘルスケア' ].join(', '),
       og: default_og,
       # twitter: default_twitter_card
+      icon: [
+        { href: asset_url('favicon.ico') },
+        { href: asset_url('apple-touch-icon.png'), rel: 'apple-touch-icon', type: 'image/png' },
+      ],
     }
   end
   
