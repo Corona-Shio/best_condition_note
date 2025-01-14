@@ -205,6 +205,17 @@ footer {
   
 }
 
+.button-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 中央揃え */
+}
+
+.button-vertical .btn {
+  width: auto; /* 自然なサイズ */
+  margin: 10px 0; /* 上下のマージン */
+}
+
 
 /* logo-link */
 
