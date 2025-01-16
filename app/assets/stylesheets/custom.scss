@@ -32,7 +32,8 @@ textarea {
 .center {
   text-align: center;
   h1 {
-    margin-bottom: 10px;
+    font-size: 3em;
+    margin-bottom: 20px;
   }
 }
 
@@ -174,12 +175,19 @@ footer {
 .home-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; // 要素が折り返すように追加
 }
 
 .main-title {
   margin-bottom: 30px;
   color: #333;
   font-weight: bold;
+  text-align: center; // 中央揃えを追加
+
+  @media (max-width: 767px) {
+    font-size: 2rem; // モバイル用にフォントサイズを縮小
+    margin-bottom: 20px;
+  }
 }
 
 .action-buttons {
@@ -202,20 +210,92 @@ footer {
     transform: translateY(-3px);
     box-shadow: 0 6px 8px rgba(0,0,0,0.15);
   }
-  
+
+  @media (max-width: 767px) {
+    padding: 12px 25px; // モバイル用にパディングを調整
+  }
 }
 
 .button-vertical {
   display: flex;
   flex-direction: column;
-  align-items: center; /* 中央揃え */
+  align-items: center;
 }
 
 .button-vertical .btn {
-  width: auto; /* 自然なサイズ */
-  margin: 10px 0; /* 上下のマージン */
+  width: auto;
+  margin: 10px 0;
+
+  @media (max-width: 767px) {
+    margin: 8px 0; // モバイル用にマージンを調整
+  }
 }
 
+.about {
+  h2 {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+
+    @media (max-width: 767px) {
+      font-size: 2.5rem; // モバイル用にフォントサイズを縮小
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  h3 {
+    margin-top: 5px;
+
+    @media (max-width: 767px) {
+      // font-size: 1.2rem; // モバイル用にフォントサイズを縮小
+    }
+  }
+}
+
+.key-features {
+  .feature-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; // 要素が折り返すように追加
+
+    @media (max-width: 767px) {
+      flex-direction: column; // モバイル時に縦並びに変更
+      align-items: center;
+    }
+
+    .feature {
+      text-align: center;
+      width: 30%;
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      margin-bottom: 20px; // 下部にスペースを追加
+
+      @media (max-width: 767px) {
+        width: 90%; // モバイル時に幅を広げる
+        padding: 15px;
+      }
+    }
+  }
+  i {
+    font-size: 48px;
+    color: #3498db;
+    margin-bottom: 15px;
+
+    @media (max-width: 767px) {
+      font-size: 36px; // モバイル用にアイコンサイズを縮小
+      margin-bottom: 10px;
+    }
+  }
+}
+
+img.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; // 中央揃えを強化
+}
 
 /* logo-link */
 
@@ -230,6 +310,32 @@ footer {
     background-color: #a0c8eb;
     text-decoration: none;
     padding-right: 20px;
+  }
+}
+
+/* about */
+.about-service {
+  padding: 50px 0;
+  
+  .service-description {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .how-it-works {
+    margin-top: 30px;
+    
+    ol {
+      padding-left: 30px;
+      
+      li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .call-to-action {
+    margin-top: 40px;
   }
 }
 

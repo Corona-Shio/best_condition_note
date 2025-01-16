@@ -1,10 +1,55 @@
 <% provide(:title, "About") %>
-<h1>About</h1>
-<p>
-  <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-  is a <a href="https://railstutorial.jp/#ebook">book</a> and
-  <a href="https://railstutorial.jp/screencast">screencast</a>
-  to teach web development with
-  <a href="https://rubyonrails.org/">Ruby on Rails</a>.
-  This is the sample application for the tutorial.
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <section class="about-service">
+        <h1 class="text-center">Best Condition Noteとは</h1>
+        
+        <div class="service-description">
+          <h2>あなたの健康を可視化する</h2>
+          <p>
+            Best Condition Noteは、あなたの日々の体調を科学的にトラッキングし、
+            健康的なライフスタイルへの第一歩をサポートするアプリケーションです。
+          </p>
+        </div>
+
+        <div class="key-features">
+          <h2>主な機能</h2>
+          <div class="feature-list">
+            <div class="feature">
+              <i class="fa fa-chart-line"></i>
+              <h3>簡単な日々の記録</h3>
+              <p>食事、睡眠、運動、メンタルヘルスを5段階で簡単に記録できます。</p>
+            </div>
+
+            <div class="feature">
+              <i class="fa fa-chart-pie"></i>
+              <h3>データの可視化</h3>
+              <p>記録したデータをグラフで直感的に理解できます。</p>
+            </div>
+
+            <div class="feature">
+              <i class="fa fa-search"></i>
+              <h3>傾向の発見</h3>
+              <p>長期的な記録から、あなたの健康パターンを発見できます。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="how-it-works">
+          <h2>使い方はシンプル</h2>
+          <ol>
+            <li>アカウントを作成</li>
+            <li>毎日5つの項目を5段階で評価</li>
+            <li>グラフで自分の状態を分析</li>
+            <li>健康的な生活習慣を見つける</li>
+          </ol>
+        </div>
+
+        <div class="call-to-action text-center">
+          <%= link_to "今すぐ始める", signup_path, class: "btn btn-primary btn-lg" %>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

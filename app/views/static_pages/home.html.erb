@@ -31,4 +31,37 @@
       <%= link_to "ログイン", login_path, class: "btn btn-lg btn-success btn-custom" %>
     </div>
   </div>
+  <div class="about">
+    <div class="key-features">
+      <h2>サービスの特徴</h2>
+      <div class="feature-list">
+        <div class="feature">
+          <i class="fa fa-chart-line"></i>
+          <h3>簡単な日々の記録</h3>
+          <p>
+            食事、睡眠、運動、メンタル、体調を<br>
+            5段階で簡単に記録できます。
+          </p>
+        </div>
+        <div class="feature">
+          <i class="fa fa-chart-pie"></i>
+          <h3>データの可視化</h3>
+          <p>
+            記録したデータをグラフで表示し<br>
+            直感的に確認できます。
+          </p>
+        </div>
+        <div class="feature">
+          <i class="fa fa-search"></i>
+          <h3>傾向の発見</h3>
+          <p>
+            記録したデータからあなたの<br>
+            体調の傾向を発見できます。
+          </p>
+        </div>
+      </div>  
+    </div>
+    <h2>あなたの体調がグラフで一目で分かる。</h2>
+    <img src="<%= asset_url("sample_graph.png") %>" alt="サンプルグラフ" class="img-responsive center-block">
+  </div>
 <% end %>
