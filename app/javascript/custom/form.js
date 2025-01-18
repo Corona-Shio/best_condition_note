@@ -16,3 +16,28 @@ document.addEventListener("turbo:load", function() {
     });
   });
 });
+
+document.addEventListener("turbo:load", () => {
+  const toggleButtons = document.querySelectorAll('.toggle-password');
+
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetSelector = button.getAttribute('data-target');
+      const passwordField = document.querySelector(targetSelector);
+
+      if (passwordField) {
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+
+        const icon = button.querySelector('span');
+        if (type === 'text') {
+          icon.classList.remove('glyphicon-eye-open');
+          icon.classList.add('glyphicon-eye-close');
+        } else {
+          icon.classList.remove('glyphicon-eye-close');
+          icon.classList.add('glyphicon-eye-open');
+        }
+      }
+    });
+  });
+});
