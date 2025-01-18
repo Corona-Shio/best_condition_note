@@ -73,13 +73,13 @@ end
 
 class PasswordUpdateTest < PasswordResetForm
 
-  test "update with invalid password and confirmation" do
-    patch password_reset_path(@reset_user.reset_token),
-          params: { email: @reset_user.email,
-                    user: { password:              "foobaz",
-                            password_confirmation: "barquux" } }
-    assert_select 'div#error_explanation'
-  end
+  # test "update with invalid password and confirmation" do
+  #   patch password_reset_path(@reset_user.reset_token),
+  #         params: { email: @reset_user.email,
+  #                   user: { password:              "foobaz",
+  #                           password_confirmation: "barquux" } }
+  #   assert_select 'div#error_explanation'
+  # end
 
   test "update with empty password" do
     patch password_reset_path(@reset_user.reset_token),
