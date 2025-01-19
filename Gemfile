@@ -19,6 +19,7 @@ gem "chartkick"
 # メタデータ
 gem "meta-tags"
 
+gem 'rails-i18n'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

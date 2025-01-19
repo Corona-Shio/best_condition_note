@@ -1,5 +1,8 @@
 ja:
   activerecord:
+    models:
+      user: "ユーザー"
+      daily_record: "Daily Record"
     attributes:
       user:
         name: 名前
@@ -162,8 +165,8 @@ ja:
     template:
       body: 次の項目を確認してください
       header:
-        one: "%{model}にエラーが発生しました"
-        other: "%{model}に%{count}個のエラーが発生しました"
+        one: "%{count}つのエラーがあります"
+        other: "%{count}つのエラーがあります"
   helpers:
     select:
       prompt: 選択してください

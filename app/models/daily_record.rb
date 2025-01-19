@@ -1,8 +1,7 @@
 class DailyRecord < ApplicationRecord
   belongs_to :user
   default_scope -> { order(date: :asc) }
-  validates :date, presence: true, 
-             uniqueness: { scope: :user_id, message: "has already been taken" }
+  validates :date, presence: true, uniqueness: { scope: :user_id }
   validates :sleep,      presence: true, numericality: { in: 1..5 }
   validates :meal,       presence: true, numericality: { in: 1..5 }
   validates :mental,     presence: true, numericality: { in: 1..5 }
