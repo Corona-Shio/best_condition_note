@@ -759,6 +759,11 @@ $form-size: 34px;
     flex-grow: 1;
   }
 
+  .trash {
+    position: relative;
+    left: -0.8px;
+  }
+
   .cancel {
     height: $form-size;
     width:  $form-size;

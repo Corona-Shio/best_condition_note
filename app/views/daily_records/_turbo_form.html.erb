@@ -24,7 +24,7 @@
         <% if has_delete %>
           <%= link_to daily_record, class: "btn btn-danger",
               data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } do %>
-              <i class="glyphicon glyphicon-trash"></i>
+              <i class="glyphicon glyphicon-trash trash"></i>
           <% end %>
         <% end %>
         <%= link_to cancel_path, class: 'btn btn-warning cancel' do %>
