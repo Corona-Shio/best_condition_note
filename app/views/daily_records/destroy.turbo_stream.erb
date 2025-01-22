@@ -1,0 +1,4 @@
+<%= turbo_stream.replace @daily_record do %>
+  <%= render 'empty_record', date: @daily_record.date %>
+<% end %>
+<%= turbo_stream_flash %> 

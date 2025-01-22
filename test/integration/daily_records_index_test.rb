@@ -100,6 +100,27 @@ class DailyRecordsIndexEditTest < DailyRecordsIndexEditBase
 
 end
 
+class DailyRecordsIndexDestroyTest < DailyRecordsIndexEditBase
+  test "successful destroy daily_record via turbo frame" do
+    @date = @one.date
+
+    assert_difference 'DailyRecord.count', -1 do
+      delete daily_record_path(@one), headers: { 'Accept': 'text/vnd.turbo-stream.html', 'Turbo-Frame': dom_id(@one) }
+    end
+
+    assert_not flash.empty?
+
+    assert_response :success
+    assert_equal 'text/vnd.turbo-stream.html', response.media_type
+
+    assert_select '.row-edit', 0
+    assert_select "turbo-frame#record_#{@date}" do
+      assert_select "a", text: 'New', count: 1
+    end
+
+  end
+end
+
 class TurboNewLinkTest < DailyRecordIndex
 
   test "turbo new link" do

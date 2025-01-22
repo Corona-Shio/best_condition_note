@@ -60,6 +60,11 @@ class DailyRecordsController < ApplicationController
     end
   end
 
+  def destroy
+    @daily_record.destroy
+    flash[:success] = t('flash.daily_records.destroy.success')
+  end
+
   def graph
     @period    = params[:period]    || 'month'
     @view_type = params[:view_type] || 'daily'

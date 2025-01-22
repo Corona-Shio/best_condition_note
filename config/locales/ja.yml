@@ -35,6 +35,8 @@ ja:
       update:
         success: "更新に成功しました"
         error: "更新に失敗しました。"
+      destroy:
+        success: "削除に成功しました"
   date:
     abbr_day_names:
       - 日

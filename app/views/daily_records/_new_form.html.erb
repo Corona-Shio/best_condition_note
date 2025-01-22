@@ -1,5 +1,6 @@
 <%= turbo_frame_tag "record_#{daily_record.date}" do %>
   <%= render 'turbo_form', 
     daily_record: daily_record, 
-    cancel_path:  empty_daily_records_path(date: daily_record.date) %>
+    cancel_path:  empty_daily_records_path(date: daily_record.date),
+    has_delete: false %>
 <% end %>
