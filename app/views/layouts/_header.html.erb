@@ -63,6 +63,11 @@
               <% end %>
             </li>
             <li class="mobile-menu">
+              <%= link_to edit_password_change_path(current_user) do %>
+                <i class="fa fa-key"></i> パスワード変更
+              <% end %>
+            </li>
+            <li class="mobile-menu">
               <%= link_to logout_path, data: { "turbo-method": :delete } do %>
                 <i class="glyphicon glyphicon-log-out"></i> ログアウト
               <% end %>
