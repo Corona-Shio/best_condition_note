@@ -420,6 +420,10 @@ input[type="date"]::-webkit-date-and-time-value {
   line-height: 1.6;
 }
 
+input[type="submit"] {
+  height: 40px;
+}
+
 .form-control {
   height: 38px;
   &:nth-last-child(2):not([type="password"]) {
