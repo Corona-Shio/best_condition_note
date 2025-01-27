@@ -89,7 +89,7 @@ class DailyRecordsController < ApplicationController
 
     def daily_record_params
       params.require(:daily_record).permit(:date,   :sleep,    :meal,
-                                           :mental, :training, :condition)
+                                           :mental, :training, :condition, :memo)
     end
 
     def correct_user

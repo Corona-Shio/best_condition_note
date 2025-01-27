@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_08_005224) do
+ActiveRecord::Schema[7.0].define(version: 2025_01_25_090425) do
   create_table "daily_records", force: :cascade do |t|
     t.integer "user_id", null: false
     t.date "date"
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_08_005224) do
     t.integer "condition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "memo"
     t.index ["user_id", "date"], name: "index_daily_records_on_user_id_and_date", unique: true
     t.index ["user_id"], name: "index_daily_records_on_user_id"
   end

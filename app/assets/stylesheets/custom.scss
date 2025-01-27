@@ -424,6 +424,12 @@ input[type="submit"] {
   height: 40px;
 }
 
+textarea {
+  &.form-control {
+    height: 100px;
+  }
+}
+
 .form-control {
   height: 38px;
   &:nth-last-child(2):not([type="password"]) {
@@ -665,6 +671,53 @@ $form-size: 34px;
 }
 
 @media (min-width: 769px) {
+  .memo {
+    p {
+      font-size: 12px;
+      text-align: left;
+      max-width: 200px;
+      margin: auto;
+      position: relative;
+      
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &:hover {
+        position: absolute;
+        max-width: 300px;
+        width: max-content;
+        
+        white-space: normal;
+        overflow: visible;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        padding: 8px 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        
+        z-index: 1000;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .memo {
+    // position: relative;
+    p {
+      // position: absolute;
+      font-size: 12px;
+      text-align: justify;
+      word-break: auto-phrase;
+      margin: 0;
+      padding-right: 10%;
+      // margin-top: 3px;
+    }
+  }
+}
+
+@media (min-width: 769px) {
   .table-like-container {
     display: table;
     border-collapse: collapse;
@@ -691,6 +744,10 @@ $form-size: 34px;
         &.row-edit {
           background-color: #d9edf7;
           border: 1px solid #d9edf7;
+          textarea {
+            height: 100px;
+            margin: 0;
+          }
         }
       }
     }
@@ -700,7 +757,7 @@ $form-size: 34px;
 
       .table-cell {
         display: table-cell;
-        width: calc(100% / 7);
+        width: calc(100% / 8);
         border-bottom: 1px solid #ddd;
         padding: 8px;
         text-align: center;
@@ -742,6 +799,11 @@ $form-size: 34px;
         align-items: center;
         justify-content: center;
 
+        &.memo {
+          display:inline-block;
+          text-align: left;
+        }
+
         &:last-child {
           border-bottom: none;
         }
@@ -762,6 +824,10 @@ $form-size: 34px;
 
     .row-edit .table-cell { 
       text-align: left;
+      textarea {
+        margin: 0;
+        margin-top: 8px;
+      }
     }
   }
 }

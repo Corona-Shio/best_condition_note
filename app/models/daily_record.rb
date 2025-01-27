@@ -7,6 +7,7 @@ class DailyRecord < ApplicationRecord
   validates :mental,     presence: true, numericality: { in: 1..5 }
   validates :training,   presence: true, numericality: { in: 1..5 }
   validates :condition,  presence: true, numericality: { in: 1..5 }
+  validates :memo, length: { maximum: 1000 }, allow_blank: true
 
   # 重みづけ定数
   SCORE_WEIGHTS = {

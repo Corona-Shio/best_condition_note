@@ -18,6 +18,9 @@
     </div>
   <% end %>
 
+  <%= f.label :memo %>
+  <%= f.text_area :memo, class: 'form-control' %>
+
   <%= f.submit yield(:button_text), class: "btn btn-primary btn-new mt-3" %>
   
 <% end %>
