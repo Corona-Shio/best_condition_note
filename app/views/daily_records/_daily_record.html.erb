@@ -18,8 +18,9 @@
     <div class="table-cell" data-label="Condition">
       <%= daily_record.condition %>
     </div>
-    <div class="table-cell memo" data-label="Memo">
-      <%= simple_format(daily_record.memo) %>
+    <div class="table-cell memo" data-label="Memo"
+        data-toggle="tooltip" data-tooltip-text="<%= daily_record.memo %>">
+        <%= simple_format(daily_record.memo) %>
     </div>
     <div class="table-cell" data-label="Actions">
       <%= link_to 'Edit', edit_daily_record_path(daily_record) %>

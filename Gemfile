@@ -21,6 +21,8 @@ gem "meta-tags"
 
 gem 'rails-i18n'
 
+gem 'concurrent-ruby', '1.3.4'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

@@ -673,51 +673,46 @@ $form-size: 34px;
   flex-direction: column;
 }
 
-@media (min-width: 769px) {
-  .memo {
-    p {
-      font-size: 12px;
+.memo {
+  p {
+    font-size: 12px;
+    margin: auto;
+
+    @media (min-width: 769px) {
       text-align: left;
-      max-width: 200px;
-      margin: auto;
-      position: relative;
-      
+      max-width: 180px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
 
-      &:hover {
-        position: absolute;
-        max-width: 300px;
-        width: max-content;
-        
-        white-space: normal;
-        overflow: visible;
-        background-color: #ffffff;
-        border: 1px solid #e0e0e0;
-        border-radius: 4px;
-        padding: 8px 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        
-        z-index: 1000;
-      }
+    @media (max-width: 768px) {
+      text-align: justify;
+      padding-right: 10%;
+      word-wrap: break-word;     /* 長い単語を折り返す */
+      overflow-wrap: break-word; /* 最新の記法 */
+      word-break: break-word;    /* より厳密な折り返し */
+      white-space: normal;       /* 通常の折り返し挙動 */
     }
   }
 }
 
-@media (max-width: 768px) {
-  .memo {
-    // position: relative;
-    p {
-      // position: absolute;
-      font-size: 12px;
-      text-align: justify;
-      word-break: auto-phrase;
-      margin: 0;
-      padding-right: 10%;
-      // margin-top: 3px;
-    }
-  }
+.custom-tooltip {
+  font-size: 12px;
+  line-height: 2rem;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+
+  word-wrap: break-word;     /* 長い単語を折り返す */
+  overflow-wrap: break-word; /* 最新の記法 */
+  word-break: break-word;    /* より厳密な折り返し */
+  white-space: normal;       /* 通常の折り返し挙動 */
+
+  pointer-events: none;
 }
 
 @media (min-width: 769px) {

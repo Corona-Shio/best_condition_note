@@ -35,7 +35,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to daily_records_path do %>
+              <%= link_to daily_records_path, data: { turbo: false } do %>
                 <i class="glyphicon glyphicon-list"></i>
                 <%= responsive_text('過去の記録', '参照') %>
               <% end %>
