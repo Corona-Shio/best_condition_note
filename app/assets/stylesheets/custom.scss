@@ -225,6 +225,17 @@ footer {
   }
 }
 
+.btn-help {
+  background-color: #a0a0a0;
+  border-color: #808080;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #808080;
+    border-color: #666666;
+  }
+}
+
 .button-vertical {
   display: flex;
   flex-direction: column;
@@ -237,6 +248,12 @@ footer {
 
   @media (max-width: 767px) {
     margin: 8px 0; // モバイル用にマージンを調整
+  }
+}
+
+.glyphicon {
+  &.help {
+    top: 3px;
   }
 }
 
@@ -345,6 +362,78 @@ img.img-responsive {
 
   .call-to-action {
     margin-top: 40px;
+  }
+}
+
+.help-page {
+
+  .help-container {
+    background-color: #f9fff4; // 柔らかい green-white
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 20px 40px;
+  }
+
+  h1 {
+    // color: #4a6741; // 落ち着いたダークグリーン
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .panel {
+    border: none;
+    margin-bottom: 25px;
+    background-color: transparent;
+
+    .panel-heading {
+      background-color: #6b8e23; // オリーブグリーン
+      color: #ffffff;
+      border-radius: 8px 8px 0 0;
+      padding: 15px;
+
+      .panel-title {
+        font-weight: 600;
+      }
+    }
+
+    .panel-body {
+      background-color: #ffffff;
+      border-radius: 0 0 8px 8px;
+      border: 1px solid #e6f0e0; // 薄いグリーンボーダー
+      padding: 20px;
+
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+
+        li {
+          margin-bottom: 10px;
+          padding-left: 25px;
+          position: relative;
+          color: #2c3e50;
+
+          &:before {
+            content: '✿'; // 葉っぱやお花のアイコンに
+            color: #4a6741;
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .btn-primary {
+    background-color: #4a6741; // 落ち着いたダークグリーン
+    border-color: #4a6741;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #5d8055; // 少し明るいグリーン
+      border-color: #5d8055;
+    }
   }
 }
 

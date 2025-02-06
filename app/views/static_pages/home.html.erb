@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         
-        <h1 class="main-title">べすこん！</h1>
+        <h1 class="main-title">べすこん</h1>
         
         <div class="action-buttons">
           <%= link_to new_daily_record_path,
@@ -19,6 +19,11 @@
           <%= link_to daily_records_path,
             class: "btn btn-success btn-lg btn-block btn-custom" do %>
             <i class="glyphicon glyphicon-list"></i> 過去の記録
+          <% end %>
+
+          <%= link_to help_path,
+            class: "btn btn-success btn-lg btn-block btn-custom btn-help" do %>
+            <i class="glyphicon glyphicon-book help"></i> 使い方
           <% end %>
         </div>
       </div>

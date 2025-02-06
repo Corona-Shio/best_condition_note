@@ -1,9 +1,55 @@
 <% provide(:title, "Help") %>
-<h1>Help</h1>
-<p>
-  Get help on the Ruby on Rails Tutorial at the
-  <a href="https://railstutorial.jp/help">Rails Tutorial Help page</a>.
-  To get help on this sample app, see the
-  <a href="https://railstutorial.jp/#ebook"><em>Ruby on Rails Tutorial</em>
-  book</a>.
-</p>
+<div class="container help-page">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 help-container">
+      <h1>べすこんの使い方</h1>
+
+      <div class="panel">
+        <div class="panel-heading">
+          <h3 class="panel-title">1. 日々の記録</h3>
+        </div>
+        <div class="panel-body">
+          <p>健康的な生活を記録し、分析するための5つの指標を毎日記録します</p>
+          <ul>
+            <li>SLEEP - 睡眠</li>
+            <li>MEAL - 食事</li>
+            <li>MENTAL - 心の健康</li>
+            <li>TRAINING - 運動</li>
+            <li>CONDITION - 全体的な体調</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading">
+          <h3 class="panel-title">2. データ分析と洞察</h3>
+        </div>
+        <div class="panel-body">
+          <p>記録したデータから、あなたの体調のパターンを理解します</p>
+          <ul>
+            <li>グラフで傾向を見える化</li>
+            <li>各指標の相互関係を探求</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading">
+          <h3 class="panel-title">3. 柔軟な記録管理</h3>
+        </div>
+        <div class="panel-body">
+          <p>「過去の記録」ページで、これまでの記録を簡単に管理</p>
+          <ul>
+            <li>テーブル形式で履歴確認</li>
+            <li>記録の修正や追記</li>
+            <li>不要な記録の削除</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <%= link_to "戻る", root_path, class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+  </div>
+</div>
