@@ -1011,12 +1011,23 @@ data-turbo-frame {
   margin-bottom: -22px;
   background: white;
 }
-.chart-container:last-of-type {
-  margin-bottom: 0;
-}
 
 .scrollableChartWrapper {
+  width: 100%;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  /* スクロールバーを完全に非表示 */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+  }
+}
+
+canvas {
+  min-width: 100%;
 }
 
 .fixed-legend {
@@ -1039,16 +1050,6 @@ data-turbo-frame {
     font-size: 60px;
     overflow-x: hidden;
   }
-}
-
-.scrollableChartWrapper {
-  /* スクロールバーを完全に非表示 */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.scrollableChartWrapper::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari, and Opera */
 }
 
 /* bootstrap */

@@ -4,7 +4,7 @@ module DailyRecordsHelper
     link_to(
       label,
       graph_daily_records_path(period:, view_type:),
-      data: { turbo: false },
+      data: period_link_data(period),
       class: period_link_class(period)
     )
   end
@@ -29,6 +29,10 @@ module DailyRecordsHelper
   def period_link_class(period)
     base_classes = 'btn'
     @period == period ? "#{base_classes} btn-primary" : "#{base_classes} btn-default"
+  end
+
+  def period_link_data(period)
+    @period == period ? { turbo: false, period: period } : { turbo: false }
   end
 
 end

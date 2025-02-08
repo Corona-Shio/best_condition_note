@@ -1,5 +1,5 @@
 // 同時スクロール
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbo:load', () => {
     const scrollableElements = document.querySelectorAll('.scrollableChartWrapper');
 
     scrollableElements.forEach(masterElement => {
