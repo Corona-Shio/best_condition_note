@@ -19,9 +19,9 @@ gem "chartkick"
 # メタデータ
 gem "meta-tags"
 
-gem 'rails-i18n'
+gem "rails-i18n"
 
-gem 'concurrent-ruby', '1.3.4'
+gem "concurrent-ruby", "1.3.4"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -80,11 +80,10 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rubycw', require: false
-  gem 'rubocop-rspec', require: false
+  gem "rubocop",             require: false
+  gem "rubocop-rails",       require: false
+  gem "rubocop-performance", require: false 
+  gem "rubocop-rubycw",      require: false
 end
 
 group :test do
@@ -96,7 +95,7 @@ group :test do
   gem "minitest-reporters", "1.6.0"
   gem "guard",              "2.18.0"
   gem "guard-minitest",     "2.4.6"
-  gem 'rails-controller-testing'
+  gem "rails-controller-testing"
 end
 
 group :production do
