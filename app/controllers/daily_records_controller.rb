@@ -13,8 +13,8 @@ class DailyRecordsController < ApplicationController
     @calendar_dates = (@month_start..@month_end).to_a
     
     @daily_records = current_user.daily_records
-                      .where(date: @month_start..@month_end)
-                      .index_by(&:date)
+                       .where(date: @month_start..@month_end)
+                       .index_by(&:date)
   end
 
   def show
@@ -70,8 +70,8 @@ class DailyRecordsController < ApplicationController
     @view_type = params[:view_type] || 'daily'
 
     @daily_records = current_user.daily_records
-                                .in_period(@period)
-                                .order(date: :asc) 
+                       .in_period(@period)
+                       .order(date: :asc) 
     
     @sleep     = DailyRecord.aggregate_scores(@daily_records, :sleep,     view_type: @view_type)
     @meal      = DailyRecord.aggregate_scores(@daily_records, :meal,      view_type: @view_type)

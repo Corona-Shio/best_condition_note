@@ -42,9 +42,10 @@ Style/SymbolArray:
   Enabled: true
   EnforcedStyle: percent
 
+# # シングルクォーテーションを推奨する
 # Style/StringLiterals:
 #   Enabled: true
-#   EnforcedStyle: single_quotes # シングルクォーテーションを推奨する
+#   EnforcedStyle: single_quotes
 
 # ハッシュのシンボルがどうとかの話
 Style/HashSyntax:
@@ -55,6 +56,14 @@ Style/HashSyntax:
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: true
   EnforcedStyle: space # { key: value } など
+
+# メソッド呼び出し時のスペース
+Layout/SpaceBeforeFirstArg:
+  Enabled: true
+
+# メソッドの改行ルール
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
 
 Rails/Validation:
   Enabled: true

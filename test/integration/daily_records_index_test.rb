@@ -23,7 +23,7 @@ class TurboEditLinkTest < DailyRecordIndex
     end
 
     # 編集ページへのTurbo Frame経由のアクセス
-    get edit_daily_record_path(@one), headers: { 'Turbo-Frame': dom_id(@one)}
+    get edit_daily_record_path(@one), headers: { 'Turbo-Frame': dom_id(@one) }
 
     assert_response :success
     assert_select '.row-edit', 1
@@ -37,7 +37,7 @@ end
 class DailyRecordsIndexEditBase < DailyRecordIndex
   def setup
     super
-    get edit_daily_record_path(@one), headers: { 'Turbo-Frame': dom_id(@one)}
+    get edit_daily_record_path(@one), headers: { 'Turbo-Frame': dom_id(@one) }
   end
 end
 
@@ -52,7 +52,7 @@ class DailyRecordsIndexEditTest < DailyRecordsIndexEditBase
 
     patch daily_record_path(@one), params: { daily_record: { sleep: sleep, meal: meal, mental: mental, 
                                                              training: training, condition: condition } },
-                                   headers: { 'Accept': 'text/vnd.turbo-stream.html', 'Turbo-Frame': dom_id(@one) }
+                                   headers: { Accept: 'text/vnd.turbo-stream.html', 'Turbo-Frame': dom_id(@one) }
     
     assert_not flash.empty?
 
@@ -74,7 +74,7 @@ class DailyRecordsIndexEditTest < DailyRecordsIndexEditBase
 
   test "edit cancel via turbo frame" do
     # キャンセルボタンのシミュレート
-    get daily_record_path(@one), headers: { 'Turbo-Frame': dom_id(@one)}
+    get daily_record_path(@one), headers: { 'Turbo-Frame': dom_id(@one) }
 
     assert_response :success
 
@@ -87,7 +87,7 @@ class DailyRecordsIndexEditTest < DailyRecordsIndexEditBase
   test "unsuccessful edit daily_record via turbo frame" do
     patch daily_record_path(@one), params: { daily_record: { sleep: 5, meal: 5, mental: 5, 
                                                            training: 1, condition: "" } },
-                                   headers: { 'Accept': 'text/vnd.turbo-stream.html', 'Turbo-Frame': dom_id(@one) }
+                                   headers: { Accept: 'text/vnd.turbo-stream.html', 'Turbo-Frame': dom_id(@one) }
     
     assert_response :unprocessable_entity
     assert_equal 'text/vnd.turbo-stream.html', response.media_type
@@ -105,7 +105,7 @@ class DailyRecordsIndexDestroyTest < DailyRecordsIndexEditBase
     @date = @one.date
 
     assert_difference 'DailyRecord.count', -1 do
-      delete daily_record_path(@one), headers: { 'Accept': 'text/vnd.turbo-stream.html', 'Turbo-Frame': dom_id(@one) }
+      delete daily_record_path(@one), headers: { Accept: 'text/vnd.turbo-stream.html', 'Turbo-Frame': dom_id(@one) }
     end
 
     assert_not flash.empty?
@@ -161,7 +161,7 @@ class DailyRecordsIndexNewTest < DailyRecordsIndexNewBase
 
     post daily_records_path, params: { daily_record: { date: @new_date, sleep: sleep, meal: meal, mental: mental, 
                                                        training: training, condition: condition } },
-                             headers: { 'Accept': 'text/vnd.turbo-stream.html', 'Turbo-Frame': "record_#{@new_date}" }
+                             headers: { Accept: 'text/vnd.turbo-stream.html', 'Turbo-Frame': "record_#{@new_date}" }
 
     assert_not flash.empty?
 
@@ -186,7 +186,7 @@ class DailyRecordsIndexNewTest < DailyRecordsIndexNewBase
 
   test "create cancel via turbo frame" do
     
-    get empty_daily_records_path(date: @new_date), headers: { 'Turbo-Frame': "record_#{@new_date}"}
+    get empty_daily_records_path(date: @new_date), headers: { 'Turbo-Frame': "record_#{@new_date}" }
 
     assert_response :success
 
@@ -201,7 +201,7 @@ class DailyRecordsIndexNewTest < DailyRecordsIndexNewBase
 
     post daily_records_path, params: { daily_record: { date: @new_date, sleep: 5, meal: 5, mental: 5, 
                                                        training: 1, condition: "" } },
-                             headers: { 'Accept': 'text/vnd.turbo-stream.html', 'Turbo-Frame': "record_#{@new_date}" }
+                             headers: { Accept: 'text/vnd.turbo-stream.html', 'Turbo-Frame': "record_#{@new_date}" }
     
     assert_response :unprocessable_entity
     assert_equal 'text/vnd.turbo-stream.html', response.media_type
