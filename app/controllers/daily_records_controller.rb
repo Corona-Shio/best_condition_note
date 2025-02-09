@@ -1,8 +1,8 @@
 class DailyRecordsController < ApplicationController
-  before_action :logged_in_user,      only: [:index, :show, :edit, :update, :destroy]
-  before_action :correct_user,        only: [:show, :edit, :update, :destroy]
-  before_action :check_direct_access, only: [:show, :edit, :empty]
-  before_action :set_daily_record,    only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user,      only: %i[index show edit update destroy]
+  before_action :correct_user,        only: %i[show edit update destroy]
+  before_action :check_direct_access, only: %i[show edit empty]
+  before_action :set_daily_record,    only: %i[show edit update destroy]
 
   def index
     @target_month = params[:month].present? ? parse_month_param(params[:month]) : Date.current
