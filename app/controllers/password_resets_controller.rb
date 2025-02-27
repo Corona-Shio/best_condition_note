@@ -8,6 +8,14 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
+
+    # reCAPTCHAの検証
+    unless verify_recaptcha
+      flash.now[:danger] = "reCAPTCHAをクリアしてください"
+      render 'new', status: :unprocessable_entity
+      return
+    end
+
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email

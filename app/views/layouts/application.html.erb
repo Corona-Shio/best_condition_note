@@ -15,8 +15,10 @@
     <%= javascript_importmap_tags %>
       <%= yield(:js) %>
     <%= javascript_include_tag "https://www.google.com/jsapi" %>
+    <%= javascript_include_tag "https://www.google.com/recaptcha/api.js" %>
     <%= javascript_include_tag "chartkick", defer: true %>
     <%= display_meta_tags(default_meta_tags) %>
+    
 
     <%# 言語関連 %>
     <meta name="language" content="Japanese">
