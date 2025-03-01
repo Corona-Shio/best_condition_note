@@ -17,7 +17,7 @@
         <span>次回から自動ログイン</span>
       <% end %>
 
-      <%= recaptcha_tags %>
+      <%= recaptcha_v3(action: 'login') %>
 
       <%= f.submit "ログインする", class: "btn btn-primary mb-3" %>
       <span>初めての方は？<%= link_to "アカウント作成", signup_path %></span>
