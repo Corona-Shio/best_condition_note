@@ -7,16 +7,12 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
+    # reCAPTCHAの検証
+    return unless verify_recaptcha_and_handle_error(
+      action: 'password_reset', render_template: 'new')
+    
     @user = User.find_by(email: params[:password_reset][:email].downcase)
-
-    # reCAPTCHA検証
-    unless verify_recaptcha(action: 'password_reset', minimum_score: 0.5)
-      Rails.logger.error "WARNING: illegal contact form request from \"#{request.remote_ip}\""
-      flash[:danger] = "reCAPTCHAをクリアしてください"
-      render 'new', status: :unprocessable_entity
-      return
-    end
-
+    
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email

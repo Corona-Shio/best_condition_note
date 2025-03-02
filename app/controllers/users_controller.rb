@@ -17,15 +17,11 @@ class UsersController < ApplicationController
   end
 
   def create
+    # reCAPTCHAの検証
+    return unless verify_recaptcha_and_handle_error(
+      action: 'signup', render_template: 'new')
+
     @user = User.new(user_params)
-    
-    # reCAPTCHA検証
-    unless verify_recaptcha(action: 'signup', minimum_score: 0.5)
-      Rails.logger.error "WARNING: illegal contact form request from \"#{request.remote_ip}\""
-      flash[:danger] = "reCAPTCHAをクリアしてください"
-      render 'new', status: :unprocessable_entity
-      return
-    end
 
     if @user.save && verify_recaptcha(model: @user)
       @user.send_activation_email

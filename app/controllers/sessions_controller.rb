@@ -5,15 +5,11 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # reCAPTCHAの検証
+    return unless verify_recaptcha_and_handle_error(
+      action: 'login', render_template: 'new')
+    
     user = User.find_by(email: params[:session][:email].downcase)
-
-    # reCAPTCHA検証
-    unless verify_recaptcha(action: 'login', minimum_score: 0.5)
-      Rails.logger.error "WARNING: illegal contact form request from \"#{request.remote_ip}\""
-      flash[:danger] = "reCAPTCHAをクリアしてください"
-      render 'new', status: :unprocessable_entity
-      return
-    end
 
     if user&.authenticate(params[:session][:password])
       if user.activated?
