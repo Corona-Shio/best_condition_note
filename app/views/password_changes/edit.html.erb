@@ -9,7 +9,7 @@
 
       <%= f.label :password %>
       <div class="input-group">
-        <%= f.password_field :password, class: 'form-control', id: 'password-field', required: true %>
+        <%= f.password_field :password, class: 'form-control', id: 'password-field', required: true, autocomplete: "new-password" %>
         <span class="input-group-btn">
           <button type="button" class="btn btn-default toggle-password" data-target="#password-field">
             <span class="glyphicon glyphicon-eye-open"></span>

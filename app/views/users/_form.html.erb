@@ -2,14 +2,14 @@
   <%= render 'shared/error_messages', object: @user %>
 
   <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.text_field :name, class: 'form-control', autocomplete: "username" %>
 
   <%= f.label :email %>
-  <%= f.email_field :email, class: 'form-control' %>
+  <%= f.email_field :email, class: 'form-control', autocomplete: "user-email" %>
 
   <%= f.label :password %>
   <div class="input-group">
-    <%= f.password_field :password, class: 'form-control', id: 'password-field' %>
+    <%= f.password_field :password, class: 'form-control', id: 'password-field', autocomplete: "current-password" %>
     <span class="input-group-btn">
       <button type="button" class="btn btn-default toggle-password" data-target="#password-field">
         <span class="glyphicon glyphicon-eye-open"></span>
