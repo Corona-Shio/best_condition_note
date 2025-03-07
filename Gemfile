@@ -23,9 +23,6 @@ gem "rails-i18n"
 
 gem "concurrent-ruby", "1.3.4"
 
-# セキュリティの強化
-gem 'rack-attack'
-
 gem 'recaptcha'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
