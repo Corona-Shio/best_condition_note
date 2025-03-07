@@ -5,10 +5,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # # reCAPTCHAの検証
-    # return unless verify_recaptcha_and_handle_error(
-    #   action: 'login', render_template: 'new')
-    
     user = User.find_by(email: params[:session][:email].downcase)
 
     if user&.authenticate(params[:session][:password])

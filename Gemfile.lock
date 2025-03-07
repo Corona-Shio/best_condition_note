@@ -262,7 +262,6 @@ GEM
       ffi (~> 1.0)
     rdoc (6.11.0)
       psych (>= 4.0.0)
-    recaptcha (5.19.0)
     regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
@@ -377,7 +376,6 @@ DEPENDENCIES
   rails (~> 7.0.4)
   rails-controller-testing
   rails-i18n
-  recaptcha
   rubocop
   rubocop-performance
   rubocop-rails

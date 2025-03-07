@@ -7,10 +7,6 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    # # reCAPTCHAの検証
-    # return unless verify_recaptcha_and_handle_error(
-    #   action: 'password_reset', render_template: 'new')
-    
     @user = User.find_by(email: params[:password_reset][:email].downcase)
     
     if @user

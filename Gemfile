@@ -23,8 +23,6 @@ gem "rails-i18n"
 
 gem "concurrent-ruby", "1.3.4"
 
-gem 'recaptcha'
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

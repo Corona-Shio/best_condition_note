@@ -17,13 +17,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    # reCAPTCHAの検証
-    return unless verify_recaptcha_and_handle_error(
-      action: 'signup', render_template: 'new')
-
     @user = User.new(user_params)
 
-    if @user.save && verify_recaptcha(model: @user)
+    if @user.save
       @user.send_activation_email
       flash[:info] = "メールを確認してアカウントを有効化してください"
       redirect_to root_url
