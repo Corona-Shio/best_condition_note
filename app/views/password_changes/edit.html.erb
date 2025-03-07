@@ -7,6 +7,9 @@
     <%= form_with(model: @user, url: password_change_path, method: :patch) do |f| %>
       <%= render 'shared/error_messages', object: @user %>
 
+      <%= f.text_field :email, class: 'form-control', autocomplete: "user-email", style: "display:none;" %>
+
+
       <%= f.label :password %>
       <div class="input-group">
         <%= f.password_field :password, class: 'form-control', id: 'password-field', required: true, autocomplete: "new-password" %>
